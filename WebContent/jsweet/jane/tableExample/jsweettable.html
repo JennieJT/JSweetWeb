@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base href="../../../">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="jsweet/plgns/res/css/jsweet.css">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://kit.fontawesome.com/64f85c0652.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
+    <script type="text/javascript" src="jsweet/plgns/deps/require/require.js"></script>
+    <style>
+        body{}
+        .jsweet-table-box{
+            /* width:992px;  */
+            margin-left:auto;
+            margin-right:auto;
+            background-color: pink
+            /* vertical-align:middle; */
+        }
+        .jsweetFirstTable{
+             width:100%; 
+             margin-left:auto;
+            margin-right:auto;
+        }
+
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript" src="jsweet/plgns/js/jsweetbegin.js"></script>
+    <div class="jsweet-table-box">
+    <div class="jsweet-toolbar">
+        <div class="jsweet-button-group">
+            <button id="jsweet_button_insert" data-formID="jsweet-form2">
+                <i class="fas fa-times">
+                    <span>
+                        insert
+                    </span>
+                </i>
+            </button>
+            <a id="jsweet_button_delete">
+                <i class="far fa-smile-wink">
+                    <span>
+                        delete
+                    </span>
+                </i>
+            </a>
+            <button id="jsweet_button_edit">
+                <i class="fas fa-times-circle">
+                    <span>
+                        edit
+                    </span>
+                </i>
+            </button>
+            <a id="jsweet_button_refresh">
+                <i class="far fa-smile-wink">
+                    <span>
+                        refresh
+                    </span>
+                </i>
+            </a>
+        </div>
+    </div>
+    <table class="jsweetFirstTable" id="jsweet_table_example">
+        <tr>
+            <th>selected</th>
+            <th>name</th>
+            <th>sex</th>
+            <th>birthday</th>
+            <th>hobby</th>
+            <th>login</th>
+            <th>password</th>
+            <th>degree</th>
+        </tr>
+    </table>
+    <template id="jsweet_table_templete">
+        <tr class="jsweet-table-tr">
+            <td id="jsweet_td_selected">
+                <input type="checkbox" name="jsweet_td_selected" value="{{name}}">
+            </td>
+            <td id="jsweet_td_name">
+                <a class="jsweet-td-a">{{name}}</a>
+            </td>
+            <td id="jsweet_td_sex">{{sex}}</td>
+            <td id="jsweet_td_birthday">{{birthday}}</td>
+            <td id="jsweet_td_hobby">{{hobby}}</td>
+            <td id="jsweet_td_login">{{login}}</td>
+            <td id="jsweet_td_password">{{password}}</td>
+            <td id="jsweet_td_degree">{{degree}}</td>
+        </tr>
+    </template>
+</div>
+    <script type="text/javascript" src="jsweet/jane/tableExample/jsweettable.js"></script>
+</body>
+
+</html>
