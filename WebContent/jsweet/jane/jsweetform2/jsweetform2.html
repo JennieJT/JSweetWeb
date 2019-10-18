@@ -2,96 +2,105 @@
 <html>
 
 <head>
-    <base href="../../../">
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="jsweet/plgns/res/css/jsweet.css">
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="https://kit.fontawesome.com/64f85c0652.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
-    <script type="text/javascript" src="jsweet/plgns/deps/require/require.js"></script>
+<base href="../../../">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="jsweet/plgns/res/css/jsweet.css">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://kit.fontawesome.com/64f85c0652.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
+<script type="text/javascript"
+	src="jsweet/plgns/deps/require/require.js"></script>
 </head>
 
-<body style="width:992px">
-        <script type="text/javascript" src="jsweet/plgns/js/jsweetbegin.js"></script>
-    <!--  name/sex/login/password/hobby(read/TV/game 
+<body style="width: 992px">
+	<script type="text/javascript" src="jsweet/plgns/js/jsweetbegin.js"></script>
+	<!--  name/sex/login/password/hobby(read/TV/game 
         checkbox)/birthday/xueli(select:high/college/master/phd-->
-        <div class="jsweet_all_form", id="jsweet_all_form">
-    <div class="jsweet-form-box">
-        <form class="jsweet-form" id="jsweet-form2" role="form">
-            <!-- name -->
-            <div class="jsweet-form-group jsweet-middle-col-12">
-                <label for="jsweet-name" class="jsweet-middle-col-3">name: </label>
-                <div class="jsweet-inner-form jsweet-middle-col-8">
-                    <input type="text" name="name" class="jsweet-middle-col-12">
-                </div>
-            </div>
+	<div class="jsweet_all_form" , id="jsweet_all_form">
+		<div class="jsweet-form-box">
+			<form class="jsweet-form" id="jsweet-form2" role="form">
+				<!-- name -->
+				<div class="jsweet-form-group jsweet-middle-col-12">
+					<label for="jsweet-name" class="jsweet-middle-col-3">name:
+					</label>
+					<div class="jsweet-inner-form jsweet-middle-col-8">
+						<input type="text" name="name" class="jsweet-middle-col-12">
+					</div>
+				</div>
 
-            <!-- sex -->
-            <div class="jsweet-form-group jsweet-middle-col-12">
-                <label for="jsweet-sex" class="jsweet-middle-col-3">sex: </label>
-                <div class="jsweet-inner-form jsweet-middle-col-8">
-                    <select name="sex">
-                        <option value="male">male</option>
-                        <option value="female">female</option>
-                    </select>
-                </div>
-            </div>
+				<!-- sex -->
+				<div class="jsweet-form-group jsweet-middle-col-12">
+					<label for="jsweet-sex" class="jsweet-middle-col-3">sex: </label>
+					<div class="jsweet-inner-form jsweet-middle-col-8">
+						<select name="sex">
+							<option value="male">male</option>
+							<option value="female">female</option>
+						</select>
+					</div>
+				</div>
 
-            <!-- login -->
-            <div class="jsweet-form-group jsweet-middle-col-12">
-                <label for="jsweet-login" class="jsweet-middle-col-3">login: </label>
-                <div class="jsweet-inner-form jsweet-middle-col-8">
-                    <input type="text" name="login" class="jsweet-middle-col-12">
-                </div>
-            </div>
+				<!-- login -->
+				<div class="jsweet-form-group jsweet-middle-col-12">
+					<label for="jsweet-login" class="jsweet-middle-col-3">login:
+					</label>
+					<div class="jsweet-inner-form jsweet-middle-col-8">
+						<input type="text" name="login" class="jsweet-middle-col-12">
+					</div>
+				</div>
 
-            <!-- password -->
-            <div class="jsweet-form-group jsweet-middle-col-12">
-                <label for="jsweet-password" class="jsweet-middle-col-3">password: </label>
-                <div class="jsweet-inner-form jsweet-middle-col-8">
-                    <input type="text" name="password" class="jsweet-middle-col-8">
-                </div>
-            </div>
+				<!-- password -->
+				<div class="jsweet-form-group jsweet-middle-col-12">
+					<label for="jsweet-password" class="jsweet-middle-col-3">password:
+					</label>
+					<div class="jsweet-inner-form jsweet-middle-col-8">
+						<input type="text" name="password" class="jsweet-middle-col-8">
+					</div>
+				</div>
 
-            <!-- hobby -->
-            <div class="jsweet-form-group jsweet-middle-col-12">
-                <label for="hobby" class="jsweet-middle-col-3">hobby: </label>
-                <div class="jsweet-inner-form jsweet-middle-col-8">
-                    <input type="checkbox" value="reading" name="hobby" /><span>reading</span>
-                    <input type="checkbox" value="television" name="hobby" /><span>television</span>
-                    <input type="checkbox" value="game" name="hobby" /><span>game</span>
-                </div>
-            </div>
+				<!-- hobby -->
+				<div class="jsweet-form-group jsweet-middle-col-12">
+					<label for="hobby" class="jsweet-middle-col-3">hobby: </label>
+					<div class="jsweet-inner-form jsweet-middle-col-8">
+						<input type="checkbox" value="reading" name="hobby" /><span>reading</span>
+						<input type="checkbox" value="television" name="hobby" /><span>television</span>
+						<input type="checkbox" value="game" name="hobby" /><span>game</span>
+					</div>
+				</div>
 
-            <!-- birthdate -->
-            <div class="jsweet-form-group jsweet-middle-col-12">
-                <label for="jsweet-birthdate" class="jsweet-middle-col-3">birth date: </label>
-                <div class="jsweet-inner-form jsweet-middle-col-8">
-                    <input type="date" name="birthday" class="jsweet-middle-col-12">
-                </div>
-            </div>
+				<!-- birthdate -->
+				<div class="jsweet-form-group jsweet-middle-col-12">
+					<label for="jsweet-birthdate" class="jsweet-middle-col-3">birth
+						date: </label>
+					<div class="jsweet-inner-form jsweet-middle-col-8">
+						<input type="date" name="birthday" class="jsweet-middle-col-12">
+					</div>
+				</div>
 
-            <!-- degree -->
-            <div class="jsweet-form-group jsweet-middle-col-12">
-                <label for="jsweet-degree" class="jsweet-middle-col-3">degree: </label>
-                <div class="jsweet-inner-form jsweet-middle-col-8">
-                    <select name="degree">
-                        <option value="highschool">highschool</option>
-                        <option value="college">college</option>
-                        <option value="master">master</option>
-                        <option value="phd">phd</option>
-                    </select>
-                </div> 
-            </div>
-        </form>
-    </div>
-    <div class="jsweet-button-box">
-        <button class="jsweet-button" id="jsweet_submit_button">submit</button>
-        <button class="jsweet-button" id="jsweet_sort_button">sort</button>
-    </div>
-</div>
-    <script type="text/javascript" src="jsweet/jane/jsweetform2/jsweetform2.js"></script>
+				<!-- degree -->
+				<div class="jsweet-form-group jsweet-middle-col-12">
+					<label for="jsweet-degree" class="jsweet-middle-col-3">degree:
+					</label>
+					<div class="jsweet-inner-form jsweet-middle-col-8">
+						<select name="degree">
+							<option value="highschool">highschool</option>
+							<option value="college">college</option>
+							<option value="master">master</option>
+							<option value="phd">phd</option>
+						</select>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="jsweet-button-box">
+			<button class="jsweet-button" id="jsweet_submit_button">submit</button>
+			<button class="jsweet-button" id="jsweet_sort_button">sort</button>
+		</div>
+	</div>
+	<script type="text/javascript"
+		src="jsweet/jane/jsweetform2/jsweetform2.js"></script>
 </body>
 
 </html>

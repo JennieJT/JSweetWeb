@@ -1,263 +1,291 @@
-html{
-    height:100%;
-    width:100%;
-    overflow:hidden; 
-    font-size: 14px;
-}
-body{
-    height:100%;
-    width:100%;
-    overflow:hidden;
-    margin:0 0 0 0;
-    padding:0 0 0 0;
-}
-#top{
-    background-color: aquamarine;
-    position: relative;
-    left:0%;
-    right:0%;
-    height:40px;
+html {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	font-size: 14px;
 }
 
-.row{
-    height:calc(100% - 40px);
-    margin:10px;
-   
-}
-.col{
-    display: inline-block;
-    text-align: center;
-    height:5000px;
+body {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
 }
 
-#navi{
-    width:40px;
-    background-color: cornflowerblue;
-    margin:5px;
+#top {
+	background-color: aquamarine;
+	position: relative;
+	left: 0%;
+	right: 0%;
+	height: 40px;
 }
-#changed{
-    float:right;
-    width: calc(100% - 80px);
-    border: 5px khaki;
-    clear:both;
+
+.row {
+	height: calc(100% - 40px);
+	margin: 10px;
 }
-.subCol{
-    float:left;
-    width: 40%;
-    height:80%;
-    margin: 5%; 
-    background-color:gray;
+
+.col {
+	display: inline-block;
+	text-align: center;
+	height: 5000px;
 }
-.jsweet-dialogBox{
-    font-size:1.5rem;
-    position: absolute;
-    top:0%;
-    left:0%;
-    height:100%;
-    width:100%;
-    display: block;
-    background:rgba(18, 188, 230, 0.5);
-    z-index: 1000;
-    overflow:hidden;
+
+#navi {
+	width: 40px;
+	background-color: cornflowerblue;
+	margin: 5px;
 }
+
+#changed {
+	float: right;
+	width: calc(100% - 80px);
+	border: 5px khaki;
+	clear: both;
+}
+
+.subCol {
+	float: left;
+	width: 40%;
+	height: 80%;
+	margin: 5%;
+	background-color: gray;
+}
+
+.jsweet-dialogBox {
+	font-size: 1.5rem;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	height: 100%;
+	width: 100%;
+	display: block;
+	background: rgba(18, 188, 230, 0.5);
+	z-index: 1000;
+	overflow: hidden;
+}
+
 .jsweet-dialogBox:after {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-}
-.jsweet-dialogBox >.jsweet-dialog-frame{
-    color:rgb(129, 122, 122);
-    border:groove rgb(170, 191, 237);
-     position:relative;
-    margin:0 auto;
-    margin-top:5%;
-    height:400px;
-    width:400px;
-    background: rgb(224, 190, 212);
-    z-index:1001;
-     opacity:1; 
-    vertical-align: middle;
-  
-    
-}
-.dad{
-    height:100%;
-    overflow:auto;
-}
-.jsweet-dialog-frame > .jsweet-top{
-    position: relative;
-    display:inline-block;
-    width:100%;
-    height:2.5rem;
-    line-height: 2.5rem;
-    border-bottom:groove rgb(170, 191, 237);
-    background-color: rgb(224, 190, 212);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif 
-} 
-.jsweet-dialog-frame >.jsweet-top >.left{
-    position: relative;
-    display:inline-block;
-    width:2rem;
-    margin-left:0.5rem;
-}
-.jsweet-dialog-frame >.jsweet-top >.title{
-    position:relative;
-    display:inline-block;
-}
-.jsweet-dialog-frame >.jsweet-top >.jsweet-close{
-    right:0%;
-    position:relative;
-    display:inline-block;
-    float:right;
-    margin-right:5%;
-}
-.jsweet-dialog-frame > .jsweet-middle{
-    height:calc(100% - 6.5rem);
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
 }
 
-.jsweet-dialog-frame > .jsweet-middle> .content{
-    position:relative;
-    height:100%;
-    border-bottom: groove rgb(170, 191, 237);
-}
-.jsweet-dialog-frame > .jsweet-middle > .content > .innerContent{
-    height:100%;
-    width:96%;
-    background: rgb(170, 191, 237);
-    margin-left: 2%;
-    margin-right:2%;
-}
-.jsweet-dialog-frame >.jsweet-bottom{
-    position:relative;
-    display:inline-block;
-    width:95%;
-    height:4rem;
-    line-height: 4rem;
-    text-align:right;
-    bottom:0%;
-    margin-right:5%;
+.jsweet-dialogBox>.jsweet-dialog-frame {
+	color: rgb(129, 122, 122);
+	border: groove rgb(170, 191, 237);
+	position: relative;
+	margin: 0 auto;
+	margin-top: 5%;
+	height: 400px;
+	width: 400px;
+	background: rgb(224, 190, 212);
+	z-index: 1001;
+	opacity: 1;
+	vertical-align: middle;
 }
 
-.far,.fas:hover {
-    color:rgb(197, 88, 121);
-    cursor: pointer;
+.dad {
+	height: 100%;
+	overflow: auto;
 }
 
-a:hover{
-   color:rgb(197, 88, 121);
-   cursor: pointer;
+.jsweet-dialog-frame>.jsweet-top {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	border-bottom: groove rgb(170, 191, 237);
+	background-color: rgb(224, 190, 212);
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+		sans-serif
+}
+
+.jsweet-dialog-frame>.jsweet-top>.left {
+	position: relative;
+	display: inline-block;
+	width: 2rem;
+	margin-left: 0.5rem;
+}
+
+.jsweet-dialog-frame>.jsweet-top>.title {
+	position: relative;
+	display: inline-block;
+}
+
+.jsweet-dialog-frame>.jsweet-top>.jsweet-close {
+	right: 0%;
+	position: relative;
+	display: inline-block;
+	float: right;
+	margin-right: 5%;
+}
+
+.jsweet-dialog-frame>.jsweet-middle {
+	height: calc(100% - 6.5rem);
+}
+
+.jsweet-dialog-frame>.jsweet-middle>.content {
+	position: relative;
+	height: 100%;
+	border-bottom: groove rgb(170, 191, 237);
+}
+
+.jsweet-dialog-frame>.jsweet-middle>.content>.innerContent {
+	height: 100%;
+	width: 96%;
+	background: rgb(170, 191, 237);
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
+.jsweet-dialog-frame>.jsweet-bottom {
+	position: relative;
+	display: inline-block;
+	width: 95%;
+	height: 4rem;
+	line-height: 4rem;
+	text-align: right;
+	bottom: 0%;
+	margin-right: 5%;
+}
+
+.far, .fas:hover {
+	color: rgb(197, 88, 121);
+	cursor: pointer;
+}
+
+a:hover {
+	color: rgb(197, 88, 121);
+	cursor: pointer;
 }
 /* for form */
-.jsweet-form-box{
-    width:auto;
-    height:auto;
-}
-.jsweet-form{
-    display:block;
-}
-.jsweet-form-group{
-    display:inline-block;
-    height:3rem;
-    float:left;
+.jsweet-form-box {
+	width: auto;
+	height: auto;
 }
 
-.jsweet-form label,.jsweet-form input{
-    display:inline-block;
-
+.jsweet-form {
+	display: block;
 }
 
-.jsweet-label-right label{
-    text-align: right;
+.jsweet-form-group {
+	display: inline-block;
+	height: 3rem;
+	float: left;
 }
 
-.jsweet-inner-form, .jsweet-radio-cars{
-    display:inline-block;
-    height:100%
-}
-.jsweet-middle-col-0{
-    width:0%;
-    margin:0 px;
-}
-.jsweet-middle-col-1{
-    width:calc(100% / 12);
-    margin:0 px;
-}
-.jsweet-middle-col-2{
-    width:calc(100% / 6);
-    margin:0 px;
-}
-.jsweet-middle-col-3{
-    width:calc(100% / 4);
-    margin:0 px;
-}
-.jsweet-middle-col-4{
-    width:calc(100% / 3);
-    margin:0 px;
-}
-.jsweet-middle-col-5{
-    width:calc(500% / 12);
-    margin:0 px;
-}
-.jsweet-middle-col-6{
-    width:calc(100% / 2);
-    margin:0 px;
-}
-.jsweet-middle-col-7{
-    width:calc(700% / 12);
-    margin:0 px;
-}
-.jsweet-middle-col-8{
-    width:calc(800% / 12);
-    margin:0 px;
-}
-.jsweet-middle-col-9{
-    width:calc(900% / 12);
-    margin:0 px;
-}
-.jsweet-middle-col-10{
-    width:calc(1000% / 12);
-    margin:0 px;
-}
-.jsweet-middle-col-11{
-    width:calc(1100% / 12);
-    margin:0 px;
-}
-.jsweet-middle-col-12{
-    width:100%;
-    margin:0 px;
-}
-.jsweetFirstTable,.jsweetFirstTable th,.jsweetFirstTable td{
-    border:1px solid black;
-    border-collapse: collapse;
-    
+.jsweet-form label, .jsweet-form input {
+	display: inline-block;
 }
 
-
-input[type=text]:hover,input[type=date]:hover{
-    border-color:pink;
-    border-style:solid;
-    border-width:2px;
-    -webkit-transition: width .35s ease-in-out;
-    transition: width .35s ease-in-out;
-    
-}
-.jsweet-invalid{
-    border-color:red;
-    border-style:solid;
-    border-width:2px;
-}
-.jsweet-font-invalid{
-   color:red;
-   font-size:0.8rem;
-   margin-top:0.2rem;
-   margin-left:0.3rem;
-}
-input{
-    box-sizing: border-box;
-}
-label{
-    vertical-align:top;
+.jsweet-label-right label {
+	text-align: right;
 }
 
+.jsweet-inner-form, .jsweet-radio-cars {
+	display: inline-block;
+	height: 100%
+}
 
+.jsweet-middle-col-0 {
+	width: 0%;
+	margin: 0 px;
+}
+
+.jsweet-middle-col-1 {
+	width: calc(100%/ 12);
+	margin: 0 px;
+}
+
+.jsweet-middle-col-2 {
+	width: calc(100%/ 6);
+	margin: 0 px;
+}
+
+.jsweet-middle-col-3 {
+	width: calc(100%/ 4);
+	margin: 0 px;
+}
+
+.jsweet-middle-col-4 {
+	width: calc(100%/ 3);
+	margin: 0 px;
+}
+
+.jsweet-middle-col-5 {
+	width: calc(500%/ 12);
+	margin: 0 px;
+}
+
+.jsweet-middle-col-6 {
+	width: calc(100%/ 2);
+	margin: 0 px;
+}
+
+.jsweet-middle-col-7 {
+	width: calc(700%/ 12);
+	margin: 0 px;
+}
+
+.jsweet-middle-col-8 {
+	width: calc(800%/ 12);
+	margin: 0 px;
+}
+
+.jsweet-middle-col-9 {
+	width: calc(900%/ 12);
+	margin: 0 px;
+}
+
+.jsweet-middle-col-10 {
+	width: calc(1000%/ 12);
+	margin: 0 px;
+}
+
+.jsweet-middle-col-11 {
+	width: calc(1100%/ 12);
+	margin: 0 px;
+}
+
+.jsweet-middle-col-12 {
+	width: 100%;
+	margin: 0 px;
+}
+
+.jsweetFirstTable, .jsweetFirstTable th, .jsweetFirstTable td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+input[type=text]:hover, input[type=date]:hover {
+	border-color: pink;
+	border-style: solid;
+	border-width: 2px;
+	-webkit-transition: width .35s ease-in-out;
+	transition: width .35s ease-in-out;
+}
+
+.jsweet-invalid {
+	border-color: red;
+	border-style: solid;
+	border-width: 2px;
+}
+
+.jsweet-font-invalid {
+	color: red;
+	font-size: 0.8rem;
+	margin-top: 0.2rem;
+	margin-left: 0.3rem;
+}
+
+input {
+	box-sizing: border-box;
+}
+
+label {
+	vertical-align: top;
+}

@@ -2,26 +2,45 @@
 <!DOCTYPE hibernate-configuration SYSTEM 
 "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-   <session-factory>
-   <property name="hibernate.dialect">
-      org.hibernate.dialect.MySQL5Dialect
-   </property>
-   <property name="hibernate.connection.driver_class">
-      com.mysql.jdbc.Driver
-   </property>
-   <!-- Assume test is the database name -->
-   <property name="hibernate.connection.url">
-      jdbc:mysql://127.0.0.1:3306/JSweetSchema?serverTimezone=UTC
-   </property>
-   <property name="hibernate.connection.username">
-      root
-   </property>
-   <property name="hibernate.connection.password">
-      Wjt123456
-   </property>
-   <mapping class="sweet.jane.model.JsweetUser"/>
-    <!--  <mapping class="sweet.wcarchy.model.Student"/> -->
-   <!-- List of XML mapping files -->
-   <!-- <mapping resource="Employee.hbm.xml"/> -->
-</session-factory>
+	<session-factory>
+		<property name="hibernate.dialect">
+			org.hibernate.dialect.MySQL5Dialect
+		</property>
+		<property name="hibernate.connection.driver_class">
+			com.mysql.jdbc.Driver
+		</property>
+		<!-- Assume test is the database name -->
+		<property name="hibernate.connection.url">
+		<!-- 	jdbc:mysql://127.0.0.1:3306/jsweet_textbook_university?&serverTimezone=UTC -->
+			    jdbc:mysql://127.0.0.1:3306/jsweet_textbook_university?serverTimezone=UTC
+		</property>
+		<property name="hibernate.connection.username">
+			root
+		</property>
+		<property name="hibernate.connection.password">
+			Wjt123456
+		</property>
+		<mapping class="sweet.jane.model.JsweetUser" />
+		<mapping class="sweet.jane.model.Advisor" />
+		<mapping class="sweet.jane.model.Classroom" />
+		<mapping class="sweet.jane.model.ClassroomPK" />
+		<mapping class="sweet.jane.model.Course" />
+		<mapping class="sweet.jane.model.Department" />
+		<mapping class="sweet.jane.model.GradePoint" />
+		<mapping class="sweet.jane.model.Instructor" />
+		<mapping class="sweet.jane.model.Section" />
+		<mapping class="sweet.jane.model.SectionPK" />
+		<mapping class="sweet.jane.model.Student" />
+		<mapping class="sweet.jane.model.Take" />
+		<mapping class="sweet.jane.model.TakePK" />
+		<mapping class="sweet.jane.model.Teach" />
+		<mapping class="sweet.jane.model.TeachPK" />
+		<mapping class="sweet.jane.model.TimeSlot" />
+		<mapping class="sweet.jane.model.TimeSlotPK" />
+		
+		
+		<!-- <mapping class="sweet.wcarchy.model.Student"/> -->
+		<!-- List of XML mapping files -->
+		<!-- <mapping resource="Employee.hbm.xml"/> -->
+	</session-factory>
 </hibernate-configuration> 

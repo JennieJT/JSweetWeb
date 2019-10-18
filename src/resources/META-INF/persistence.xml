@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="JSweetWeb">
+	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+	    <class>sweet.jane.model.Advisor</class>
+		<class>sweet.jane.model.Classroom</class>
+		<class>sweet.jane.model.ClassroomPK</class>
+		<class>sweet.jane.model.Course</class>
+		<class>sweet.jane.model.Department</class>
+		<class>sweet.jane.model.GradePoint</class>
+		<class>sweet.jane.model.Instructor</class>
+		<class>sweet.jane.model.Section</class>
+		<class>sweet.jane.model.SectionPK</class>
+		<class>sweet.jane.model.Student</class>
+		<class>sweet.jane.model.Take</class>
+		<class>sweet.jane.model.TakePK</class>
+		<class>sweet.jane.model.Teach</class>
+		<class>sweet.jane.model.TeachPK</class>
+		<class>sweet.jane.model.TimeSlot</class>
+		<class>sweet.jane.model.TimeSlotPK</class>
+		<class>java.lang.String</class>
+	  <properties>
+            <property name = "hibernate.connection.driver_class" value = "com.mysql.jdbc.Driver"/>
+            <property name = "hibernate.connection.url" value = "jdbc:mysql://127.0.0.1:3306/jsweet_textbook_university?serverTimezone=UTC"/>
+            <property name = "hibernate.connection.username" value = "root"/>
+            <property name="hibernate.connection.password" value="Wjt123456"/>
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+        </properties>
+	</persistence-unit>
+</persistence>

@@ -61,7 +61,8 @@ require([/**"JSweetPage",*/"JSweetForm", "JSweetDlg", "JSweetGrid", "text!" + "j
                         //get all the value from the form
                         //jquery serialize function: get all the data from the form as key and value;
                         jform.submit({
-                            url: "jswt/jane/paramForm",
+                          //  url: "jswt/jane/paramForm",
+                        	url: "jswt/HQL/University",
                             success: function (s) {
                                 dlg.close();
                                 grid.load();

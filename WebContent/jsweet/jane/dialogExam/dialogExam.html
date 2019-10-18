@@ -2,60 +2,63 @@
 <html>
 
 <head>
-    <base href="../../../">
-    <meta charset="UTF-8">
-    <title>Jingtian's work</title>
-    <link rel="stylesheet" href="jsweet/plgns/res/css/jsweet.css">
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="https://kit.fontawesome.com/64f85c0652.js"></script>
-    <script type="text/javascript" src="jsweet/plgns/deps/require/require.js"></script>
-    <style>
-        body{
-        background-color:thistle;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-weight:bold;
-        text-shadow: 5px,5px,5px,white;
-        font-size: 2rem;
-    }
-
-
-.dialog-box{
-  position: absolute;
-  width: 500px;
-  height: 300px;
-  background: rgb(218, 148, 194);
-  border-radius: 25px;
-  jsweet-top: 70%;
-  left: 45%;
-  margin: -100px 0 0 -150px;
-  box-shadow:10px 10px 5px grey;
+<base href="../../../">
+<meta charset="UTF-8">
+<title>Jingtian's work</title>
+<link rel="stylesheet" href="jsweet/plgns/res/css/jsweet.css">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://kit.fontawesome.com/64f85c0652.js"></script>
+<script type="text/javascript"
+	src="jsweet/plgns/deps/require/require.js"></script>
+<style>
+body {
+	background-color: thistle;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+		sans-serif;
+	font-weight: bold;
+	text-shadow: 5px, 5px, 5px, white;
+	font-size: 2rem;
 }
 
-.highlight{
-    position:absolute;
-    background: rgb(218, 148, 194);
-    margin-left: auto;
-    margin-right: auto;
-    vertical-align: middle;
+.dialog-box {
+	position: absolute;
+	width: 500px;
+	height: 300px;
+	background: rgb(218, 148, 194);
+	border-radius: 25px;
+	jsweet-top: 70%;
+	left: 45%;
+	margin: -100px 0 0 -150px;
+	box-shadow: 10px 10px 5px grey;
+}
 
+.highlight {
+	position: absolute;
+	background: rgb(218, 148, 194);
+	margin-left: auto;
+	margin-right: auto;
+	vertical-align: middle;
 }
-.dialog-word{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
-   
+
+.dialog-word {
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+		sans-serif
 }
-button{
-    border-radius: 25px;
-    background-color:rgba(202, 202, 198, 0.849); /* Green */
-    border: none;
-    color: rgb(158, 100, 100);
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    height:80px;
-    width: 200px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+button {
+	border-radius: 25px;
+	background-color: rgba(202, 202, 198, 0.849); /* Green */
+	border: none;
+	color: rgb(158, 100, 100);
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	height: 80px;
+	width: 200px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
 }
 </style>
 
@@ -63,18 +66,33 @@ button{
 </head>
 
 <body>
-    <script type="text/javascript" src="jsweet/plgns/js/jsweetbegin.js"></script>
-    <div class="highLight">
-        <h1>Test Dialog Box</h1>
-    </div>
+	<script type="text/javascript" src="jsweet/plgns/js/jsweetbegin.js"></script>
+	<div class="highLight">
+		<h1>Test Dialog Box</h1>
+	</div>
 
-    <template id="jsweet_example_templete">
-        <div style="height:100%;overflow:auto">As a controversial figure, Mao is regarded as one of the most important and influential individuals in modern world history.He is also known as a political intellect, theorist, military strategist, poet, and visionary.Supporters credit him with driving imperialism out of China,modernising the nation and building it into a world power, promoting the status of women, improving education and health care, as well as increasing life expectancy as China's population grew from around 550 million to over 900 million under his leadership.
-                Conversely, his regime has been called autocratic and totalitarian, and condemned for bringing about mass repression and destroying religious and cultural artifacts and sites. It was additionally responsible for vast numbers of deaths with estimates ranging from 30 to 70 million victims through starvation, prison labour and mass executions.</div>
-    </template>
+	<template id="jsweet_example_templete">
+	<div style="height: 100%; overflow: auto">As a controversial
+		figure, Mao is regarded as one of the most important and influential
+		individuals in modern world history.He is also known as a political
+		intellect, theorist, military strategist, poet, and
+		visionary.Supporters credit him with driving imperialism out of
+		China,modernising the nation and building it into a world power,
+		promoting the status of women, improving education and health care, as
+		well as increasing life expectancy as China's population grew from
+		around 550 million to over 900 million under his leadership.
+		Conversely, his regime has been called autocratic and totalitarian,
+		and condemned for bringing about mass repression and destroying
+		religious and cultural artifacts and sites. It was additionally
+		responsible for vast numbers of deaths with estimates ranging from 30
+		to 70 million victims through starvation, prison labour and mass
+		executions.</div>
+	</template>
 
-    <button id="openbutton" type="button" class="botton-word">pop up dialog box</button>
-    <script type="text/javascript" src="jsweet/jane/dialogExam/dialogExam.js"></script>
+	<button id="openbutton" type="button" class="botton-word">pop
+		up dialog box</button>
+	<script type="text/javascript"
+		src="jsweet/jane/dialogExam/dialogExam.js"></script>
 </body>
 
 </html>

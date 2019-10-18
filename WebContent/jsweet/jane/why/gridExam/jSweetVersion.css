@@ -1,0 +1,28 @@
+html{
+    height:100%;
+    width:100%;
+}
+body{
+    height:100%;
+    width:100%;
+}
+.top{
+    height:20%;
+    background-color: burlywood;
+}
+.navigate{
+    height:80%;
+    top:20%;
+    left:0%;
+    right:100px;
+    background-color:palevioletred;
+}
+.main{
+
+}
+.bar{}
+.title{}
+.menubar{}
+.toolbar{}
+.content{}
+.statebar{}
