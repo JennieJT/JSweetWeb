@@ -19,9 +19,23 @@
 		<class>sweet.jane.model.TimeSlot</class>
 		<class>sweet.jane.model.TimeSlotPK</class>
 		<class>java.lang.String</class>
+		<class>model.OriginalVersionManage</class>
+		<class>model.OrgUser</class>
 	  <properties>
             <property name = "hibernate.connection.driver_class" value = "com.mysql.jdbc.Driver"/>
             <property name = "hibernate.connection.url" value = "jdbc:mysql://127.0.0.1:3306/jsweet_textbook_university?serverTimezone=UTC"/>
+            <property name = "hibernate.connection.username" value = "root"/>
+            <property name="hibernate.connection.password" value="Wjt123456"/>
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+        </properties>
+	</persistence-unit>
+	<persistence-unit name="h5">
+	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>model.OriginalVersionManage</class>
+	  <properties>
+            <property name = "hibernate.connection.driver_class" value = "com.mysql.jdbc.Driver"/>
+            <property name = "hibernate.connection.url" value = "jdbc:mysql://127.0.0.1:3306/jsweet_h5?serverTimezone=UTC"/>
             <property name = "hibernate.connection.username" value = "root"/>
             <property name="hibernate.connection.password" value="Wjt123456"/>
             <property name="hibernate.show_sql" value="true" />

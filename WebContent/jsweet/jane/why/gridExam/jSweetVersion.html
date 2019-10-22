@@ -1,24 +1,70 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <base href="../../../../">
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="jsweet/jane/why/gridExam/jSweetVersion.css">
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
-        <script type="text/javascript"
-	src="jsweet/plgns/deps/require/require.js"></script>
-    </head>
-    <body>
-        <div class=top></div>
+
+<head>
+    <base href="../../../../">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="jsweet/jane/why/gridExam/jSweetVersion.css">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="jsweet/plgns/deps/require/require.js"></script>
+
+</head>
+
+<body>
+    <script type="text/javascript" src="jsweet/plgns/js/jsweetbegin.js"></script>
+    <script type="text/javascript" src="jsweet/jane/why/gridExam/jSweetVersion.js"></script>
+    <div class=top>China Software and Service, Co., Ltd</div>
+    <div class=elseTop>
         <div class=navigator></div>
         <div class=main>
-        <div class=bar>
-                    <div class=title></div>
-                    <div class=menubar></div>
-                    <div class=toolbar></div>
+            <div class=content>
+                <div class=menubar></div>
+                <div class=title>Version Information Lists</div>
+                <div class=toolbar id=jsweet_toolbar>
+                    <table class=toolbar-table>
+                        <tr>
+                            <th class=toolbar-th>
+                                <a class=toolbar-a> test publish </a>
+                            </th>
+                            <th class=toolbar-th>
+                                <a class=toolbar-a> official publish </a>
+
+                            </th>
+                            <th class=toolbar-th>
+                                <a class=toolbar-a> download </a>
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+                <table class=version-table>
+                    <tbody class=toolbar-tbody id=jsweet_table>
+                        <tr id='head'>
+                            <th class=table-th>version number</th>
+                            <th class=table-th>publisher</th>
+                            <th class=table-th>publish date</th>
+                            <th class=table-th>publish type</th>
+                            <th class=table-th>publish notes</th>
+                            <th class=table-th>update list</th>
+                        </tr>
+                        <template id='each_row'>
+                            <tr id="table_line">
+                                <td>{{number1}}.{{number2}}.{{number3}}</th>
+                                <td>{{publisher}}</th>
+                                <td>{{publishDate}}</th>
+                                <td>{{publishType}}</th>
+                                <td>{{publishNotes}}</th>
+                                <td>{{updateList}}</th>
+                            </tr>
+                            <template>
+
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class=content></div>
         <div class=statebar></div>
-        </div>
-    </body>
+    </div>
+    </div>
+
+</body>
+
 </html>

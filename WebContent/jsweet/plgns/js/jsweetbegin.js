@@ -40,7 +40,7 @@ require.config(
            JSweetHTMLDir:'jsweet/plgns/html',
            JSweetForm:'jsweet/plgns/src/common/JSweetForm',
            JSweetGrid:'jsweet/plgns/src/common/JSweetGrid',
-           JSweetPage:'jsweet/plgns/src/common/JSWTPage.js'
+           JSweetPage:'jsweet/plgns/src/common/JSWTPage'
          },
         waitSeconds: 0,
         shim: {

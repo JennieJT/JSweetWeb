@@ -138,7 +138,9 @@ define([], function () {
                 //     tempHTML = tempHTML.replace("{{"+key+"}}", person[key]);
                 // }
                 $.each(person,function(key,value){
+                   
                     tempHTML = tempHTML.replace(RegExp("{{"+key+"}}","g"), value);
+                    
                 })
                 $("#"+_id).append(tempHTML);
             }
