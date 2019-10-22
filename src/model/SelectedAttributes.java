@@ -10,7 +10,6 @@ public class SelectedAttributes implements Serializable {
 //    + "version.publish_date,version.publish_type,version.publish_notes,version.update_list,"
 //    + "version.invalid,u.user_name as publisher \n" + //
 
-	private String uuid;
 	public String getUuid() {
 		return uuid;
 	}
@@ -74,7 +73,16 @@ public class SelectedAttributes implements Serializable {
 	public void setUpdateList(String updateList) {
 		this.updateList = updateList;
 	}
+	public String getUserName() {
+		return userName;
+	}
 
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	private String uuid;
+	private String userName;
 	private int number1;
 	private int number2;
 	private int number3;
