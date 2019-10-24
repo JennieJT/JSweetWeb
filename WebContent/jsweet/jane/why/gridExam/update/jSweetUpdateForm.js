@@ -1,23 +1,6 @@
-require([ "JSweetGrid","JSweetDlg","JSweetForm","text!jsweet/jane/why/gridExam/update/jSweetUpdateForm.html"], function (JsweetGrid,Dlg,Jform,templeteContent) {
+require(["JSweetForm"], function (Jform) {
     $(document).ready(function () {
-        /**@type {JSweetGrid} */ 
-        var grid = JsweetGrid({ id: "jsweet_table", templeteId: "each_row"})
-        grid.load({
-            url: "jswt/updateVersion/fetchTable",
-            param: {},
-            curPage: 1,
-            rowNum: 0
-        })
-   });
-   var dlg;
-   function popDialog(){
-       var args={
-           id:"save_version_dlg",
-           content:templeteContent,
-           smlSize:"large",
-           title:"version information",
-           onload:function(e){
-               $('#save_version_dlg .jsweet-okay').click(function(){
+        $("jsweet-okay").click(function () {
             //get all the value from the form
             //jquery serialize function: get all the data from the form as key and value;
             var jform = Jform({ id: "version-form" });
@@ -48,19 +31,6 @@ require([ "JSweetGrid","JSweetDlg","JSweetForm","text!jsweet/jane/why/gridExam/u
                 }
             )
             console.info(magicSerialJson);
-            alert('closing...')
-            dlg.close()
         });
-                
-           }
-       }
-       dlg=Dlg(args)
-       dlg.modal()
-   }
-   var onload=function(){
-       document.getElementById("test_publish_button").addEventListener("click", popDialog, false);
-   }
-   onload();
+    });
 })
-
-

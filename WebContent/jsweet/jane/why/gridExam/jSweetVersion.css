@@ -2,6 +2,8 @@ html {
 	height: 100%;
 	width: 100%;
 	overflow: hidden;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
 }
 
 body {
@@ -11,6 +13,11 @@ body {
 	margin: 0 0 0 0;
     padding: 0 0 0 0;
     background-color: rgb(206, 204, 204);
+    font-family:  Palatino, "Palatino Linotype", Georgia, serif; 
+}
+#img{
+    display:inline-block;
+    top:0.5rem;
 }
 .top{
     background-color:rgba(93, 151, 236, 0.842);
@@ -45,17 +52,22 @@ body {
 .menubar{
     height:30px;
 }
-.title{
+.h1-title{
     font-size:1rem;
     line-height:3rem;
     border-top:0.1px solid rgb(184, 180, 180);
     background-color: white;
+    padding-left:0.5rem;
     
 }
 
 .toolbar{
     /* height:40px; */
     border-top:0.1px solid rgb(184, 180, 180);
+}
+.toolbar-a:hover{
+    color:white;
+    background-color:rgba(93, 151, 236, 0.842) ;
 }
 .toolbar-span{
     height:30px;
@@ -103,4 +115,148 @@ td{
 	border-top:0.1px solid rgb(184, 180, 180);
 	   background-color: rgb(241, 240, 240);
 }
+.table-th{
+    text-align: left;
+    height:2rem;
+}
 .statebar{}
+.jsweet-dialogBox {
+    font-size: 1.5rem;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    display: block;
+    background: rgba(101, 102, 102, 0.5);
+    z-index: 1000;
+    overflow: hidden;
+}.jsweet-dialogBox:after {
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+
+.jsweet-dialogBox>.jsweet-dialog-frame {
+	color: rgb(129, 122, 122);
+	border: groove rgb(170, 191, 237);
+	position: relative;
+	margin: 0 auto;
+	margin-top: 5%;
+	height: 400px;
+	width: 400px;
+	background: white;
+	z-index: 1001;
+	opacity: 1;
+	vertical-align: middle;
+}
+
+.dad {
+	height: 100%;
+	overflow: auto;
+}
+
+.jsweet-dialog-frame>.jsweet-top {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	border-bottom: groove rgb(170, 191, 237);
+	background-color:white;
+
+}
+
+.jsweet-dialog-frame>.jsweet-top>.left {
+	position: relative;
+	display: inline-block;
+	width: 2rem;
+	margin-left: 0.5rem;
+}
+
+.jsweet-dialog-frame>.jsweet-top>.title {
+	position: relative;
+	display: inline-block;
+}
+
+.jsweet-dialog-frame>.jsweet-top>.jsweet-close {
+	right: 0%;
+	position: relative;
+	display: inline-block;
+	float: right;
+	margin-right: 5%;
+}
+
+.jsweet-dialog-frame>.jsweet-middle {
+	height: calc(100% - 6.5rem);
+}
+
+.jsweet-dialog-frame>.jsweet-middle>.content {
+	position: relative;
+	height: 100%;
+	border-bottom: groove rgb(170, 191, 237);
+}
+
+.jsweet-dialog-frame>.jsweet-middle>.content>.innerContent {
+	height: 100%;
+	width: 96%;
+	background: white;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
+.jsweet-dialog-frame>.jsweet-bottom {
+	position: relative;
+	display: inline-block;
+	width: 95%;
+	height: 4rem;
+	line-height: 4rem;
+	text-align: right;
+	bottom: 0%;
+	margin-right: 5%;
+}
+
+.far, .fas:hover {
+	color: rgb(197, 88, 121);
+	cursor: pointer;
+}
+
+a:hover {
+	color: rgb(197, 88, 121);
+	cursor: pointer;
+}
+.version-number-div{
+    height:40px;
+    padding:10px;
+    width:100%;
+    border:0.1px solid;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+     
+}
+.current-state-div{
+    height:40px;
+    padding:10px;
+    width:100%;
+    border:0.1px solid;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+.publish-information-div{
+    height:160px;
+    padding:10px;
+    width:100%;
+    border:0.1px solid;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+
+}
+.update-information-div{
+    height:160px;
+    padding:10px;
+    width:100%;
+    border:0.1px solid;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}

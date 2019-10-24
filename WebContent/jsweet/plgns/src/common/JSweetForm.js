@@ -13,38 +13,38 @@ define([], function () {
                     this.isDirtied(true);
                 }, this));
 
-                //validate
-                jQuery.validator.setDefaults({ "errorElement": "div" })
-                $.validator.addMethod("jsweetFirstNotB", function (value, element, params) {
-                    return params.indexOf(value.charAt(0)) == -1;
-                }, jQuery.validator.format("Invalid, First character is {0}"))
-                // $.validator.addClassRules("name",{jsweetFirstNotB: "A?EIOU"})
-                var voptions={
-                    errorClass:"jsweet-font-invalid",
-                    success:function(label){
-                        /** @type {JQuery} */
-                        var target=label.parent(".jsweet-inner-form");
-                        target.removeClass("jsweet-invalid");
-                        label.remove();
-                    },
-                    /** 
-                     * @param {JQuery} element
-                     * @param {JQuery} error
-                     */
-                    errorPlacement:function(error,element){
-                            var why=element.parent(".jsweet-inner-form")
-                            why.addClass("jsweet-invalid")
-                            error.css({
-                        })
-                            why.append(error)
-                    },
-                    highlight:function(element,errorClass){
+        //         //validate
+        //         jQuery.validator.setDefaults({ "errorElement": "div" })
+        //         $.validator.addMethod("jsweetFirstNotB", function (value, element, params) {
+        //             return params.indexOf(value.charAt(0)) == -1;
+        //         }, jQuery.validator.format("Invalid, First character is {0}"))
+        //         // $.validator.addClassRules("name",{jsweetFirstNotB: "A?EIOU"})
+        //         var voptions={
+        //             errorClass:"jsweet-font-invalid",
+        //             success:function(label){
+        //                 /** @type {JQuery} */
+        //                 var target=label.parent(".jsweet-inner-form");
+        //                 target.removeClass("jsweet-invalid");
+        //                 label.remove();
+        //             },
+        //             /** 
+        //              * @param {JQuery} element
+        //              * @param {JQuery} error
+        //              */
+        //             errorPlacement:function(error,element){
+        //                     var why=element.parent(".jsweet-inner-form")
+        //                     why.addClass("jsweet-invalid")
+        //                     error.css({
+        //                 })
+        //                     why.append(error)
+        //             },
+        //             highlight:function(element,errorClass){
         
-                    }
-                };
-                voptions=$.extend(true,voptions,config.voptions)
-                var valid = $("#"+config.id).validate(voptions);
-        }
+        //             }
+        //         };
+        //         voptions=$.extend(true,voptions,config.voptions)
+        //         var valid = $("#"+config.id).validate(voptions);
+         }
         /**
          * @param {TJSweetFormLoad} param
          */

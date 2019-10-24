@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<base href="../../../../../">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="jsweet/plgns/res/css/jsweet.css">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://kit.fontawesome.com/64f85c0652.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
+<script type="text/javascript"
+	src="jsweet/plgns/deps/require/require.js"></script>
+
+</head>
+<body>
+    <script type="text/javascript"
+	src="jsweet/jane/why/gridExam/update/jSweetUpdateForm.js"></script>
+    <form class="jsweet-form" id="version-form" role="form"></form>
+    <div class=version-number-div>
+        <label class="version-label jsweet-middle-col-4" id=version-number-label> version number:</label>
+        <span class=version-number-span id=version-number-first>
+            <input type="text" name="number-first" class="jsweet-middle-col-2 version-number-input">
+        </span>
+        <span class=version-number-spot-span id=version-number-first-dot> . </span>
+        <span class=version-number-span id=version-number-second>
+            <input type="text" name="number-first" class="jsweet-middle-col-2 version-number-input">
+        </span>
+        <span class=version-number-spot-span id=version-number-second-dot> . </span>
+        <span class=version-number-span id=version-number-third>
+            <input type="text" name="number-first" class="jsweet-middle-col-2 version-number-input">
+        </span>
+    </div>
+
+    <div class=current-state-div>
+        <span class="version-label-span jsweet-middle-col-4" id=version-state-label> current state: </span>
+        <span class=version-state-span id=version-state-select>
+            <select name="version" class="jsweet-middle-col-4 version-state-select">
+							<option value="male">test publish</option>
+							<!-- <option value="female">female</option> -->
+						</select>
+        </span>
+    </div>
+
+    <div class=publish-information-div>
+        <span class="publish-label-span jsweet-middle-col-4" id=publish-info-label> publish notes: </span>
+        <span class=publish-info-span id=publish-info-textarea>
+            <textarea type='text' class="jsweet-middle-col-8 version-publish-info-textarea" ></textarea>
+        </span>
+    </div>
+
+    <div class=update-information-div>
+        <span class="update-label-span jsweet-middle-col-4" id=update-info-label> update notes: </span>
+        <span class=update-info-span id=update-info-textarea>
+            <textarea type='text' class="jsweet-middle-col-8 version-update-info-textarea" ></textarea>
+        </span>
+    </div>
+</form>
+    </body>
+    </html>
