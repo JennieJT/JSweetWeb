@@ -21,6 +21,7 @@
 			Wjt123456
 		</property>
 		<mapping class="sweet.jane.model.JsweetUser" />
+		<mapping class="model.OriginalVersionManage" />
 		<mapping class="sweet.jane.model.Advisor" />
 		<mapping class="sweet.jane.model.Classroom" />
 		<mapping class="sweet.jane.model.ClassroomPK" />

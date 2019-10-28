@@ -129,7 +129,15 @@ define([], function () {
         */
         JSweetGrid.prototype.addEventListener = function (args) { }
         JSweetGrid.prototype.refresh = function () {
-            $(".jsweet-table-tr").remove();
+        	  function compare(num1,num2,num3){
+     	         return function(obj1,obj2){
+     	             var value1 = obj1[num1]*99*999+obj1[num2]*999+obj1[num3];
+     	             var value2 = obj2[num1]*99*999+obj2[num2]*999+obj2[num3];
+     	             return value2 - value1;  
+     	         }
+        	    }
+        	    var sortObj = _gridData.sort(compare("number1","number2","number3"));
+            $("#"+_id+" td").remove();
             for (var i = 0; i < _gridData.length; i++) {
                 var person = _gridData[i];
                 //must be id!!!

@@ -20,6 +20,6 @@
 		<property name="hibernate.connection.password">
 			Wjt123456
 		</property>
-
+		<mapping class="model.OriginalVersionManage" />
 	</session-factory>
 </hibernate-configuration> 

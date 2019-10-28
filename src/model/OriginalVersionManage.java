@@ -3,6 +3,7 @@ package model;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Date;
 
 
 /**
@@ -71,6 +72,8 @@ public class OriginalVersionManage implements Serializable {
 //	    private OrgUser orgUser;
 
 	public OriginalVersionManage() {
+		this.setCreateTime(new Timestamp(new Date().getTime()));
+		this.setLastModifyTime(new Timestamp(new Date().getTime()));
 	}
 
 	public String getUuid() {

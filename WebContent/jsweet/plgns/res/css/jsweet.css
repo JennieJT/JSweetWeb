@@ -157,7 +157,7 @@ body {
 }
 
 a:hover {
-	color: rgb(197, 88, 121);
+	color: grey;
 	cursor: pointer;
 }
 /* for form */

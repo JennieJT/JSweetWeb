@@ -1,5 +1,4 @@
 package sweet.jane;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -27,16 +26,9 @@ import sweet.jane.model.JsweetUser;
 @RequestMapping("/updateVersion")
 @Controller
 public class UpdateVersionController{
-	static EntityManager entityManager=null;
 	public UpdateVersionController() {
 	}
-	public EntityManager getEntityManager() {
-		if(entityManager==null) {
-			EntityManagerFactory emf = Persistence.createEntityManagerFactory("h5");
-			entityManager=emf.createEntityManager();
-		}
-		return entityManager;
-	}
+	SessionFactory sessionFactory = new Configuration().configure("hibernate.version.cfg.xml").buildSessionFactory();
 	
 @ResponseBody
 @RequestMapping("fetchTable")
@@ -45,10 +37,7 @@ public class UpdateVersionController{
 				+ "publish_type as publishType, publish_notes as publishNotes, update_list as updateList \n" + 
 				" FROM original_version_manage v JOIN org_user u on u.user_uuid=v.publisher;";
 			//"WHERE publisher=orgUser.userUuid"
-		
-		SessionFactory sessionAnnotationFactory; 
-		sessionAnnotationFactory = new Configuration().configure("hibernate.version.cfg.xml").buildSessionFactory();
-		Session session = sessionAnnotationFactory.openSession();
+		Session session = sessionFactory.openSession();
 		List<SelectedAttributes> result = session.createNativeQuery(sql1)
 			.setResultTransformer( Transformers.aliasToBean( SelectedAttributes.class ) )
 			.list();
@@ -59,5 +48,58 @@ public class UpdateVersionController{
 	r.setSuccess(true);
 	r.setData(result);
 	return r;
+}
+
+@ResponseBody
+@RequestMapping("currentVersion")
+	public  JsonResult getcurrentVersion(String id) throws IOException {
+	String sql = "select * from original_version_manage version where uuid="+id;
+//	+ "where version.invalid= ? and version.app_type=? "
+		Session session = sessionFactory.openSession();
+		OriginalVersionManage res = (OriginalVersionManage) session.createNativeQuery(sql);
+		if (res.getNumber3() < 999) {
+			res.setNumber3(res.getNumber3() + 1);
+		} else if (res.getNumber2()< 99) {
+			res.setNumber3(1);
+			res.setNumber2(res.getNumber2() + 1);
+		} else {
+			res.setNumber3(1);
+			res.setNumber2(1);
+			res.setNumber1(res.getNumber1() + 1 );
+		}
+	JsonResult r=new JsonResult();
+	r.setMessage("Hello");
+	r.setCode(1);
+	r.setSuccess(true);
+	r.setData(res);
+	return r;
+}
+
+@ResponseBody
+@RequestMapping("paramForm")
+public  JsonResult getParamForm(OriginalVersionManage result2) throws IOException {
+	String sql2="SELECT o FROM OriginalVersionManage o";
+	//OriginalVersionManage result=new OriginalVersionManage(form);
+	Session session = sessionFactory.openSession();
+	String publisher="c8f1ba6c7cf842409aba43206e9f7442";
+	//List<OriginalVersionManage> result2=session.createQuery(sql2).list();
+	result2.setPublishType("1");
+	result2.setAppType("h5");
+	result2.setCreateUser(publisher);
+	result2.setInvalid("1");
+	result2.setLastModifyUser(publisher);
+	result2.setOnFlag("1");
+	result2.setOperStatus("1");
+	result2.setPublishDate("2019-10-25");
+	result2.setPublisher(publisher);
+	session.beginTransaction();
+	session.saveOrUpdate(result2);
+	session.getTransaction().commit();
+	session.close();
+
+JsonResult r=new JsonResult();
+r.setCode(1);
+r.setSuccess(true);
+return r;
 }
 }
