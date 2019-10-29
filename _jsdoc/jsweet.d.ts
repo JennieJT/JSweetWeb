@@ -34,7 +34,7 @@ declare class  JSweetForm{
      */
     serialize():{[key:string]:any}
     /**
-     * 得到form表单全部的input值
+     * 给form表单赋值
      * @returns 表单数据
      */
     deserialize(args:TJSweetFormDeserialize):any

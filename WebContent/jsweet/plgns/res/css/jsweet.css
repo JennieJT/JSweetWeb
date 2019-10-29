@@ -351,11 +351,11 @@ label {
     padding-top:10px;
      vertical-align:middle;
 }
-/* tbody{
+tbody{
     width: 600px;
     margin:0 0 0 0;
     padding:0 0 0 0;
-} */
+}
 .toolbar-table{
     top:0%;
     width: 600px;
@@ -381,18 +381,18 @@ label {
 	border-top:0.1px solid grey;
 	vertical-align:middle;
 }
-/* td{
+td{
 	width: calc(100%/ 6);
 	vertical-align:inherit;
 	height:40px;
 	border-top:0.1px solid rgb(184, 180, 180);
 	   background-color: rgb(241, 240, 240);
-} */
-/* .table-th{
+} 
+ .table-th{
     text-align: left;
     height:2rem;
-} */
-.statebar{}
+}
+
 .version-number-div{
     height:40px;
     padding:10px;
@@ -445,3 +445,8 @@ label {
 	padding-left:0.5rem;
 	padding-right:0.5rem;
 }
+a{
+	height:100%;
+	width:100%;
+}
+.statebar{}

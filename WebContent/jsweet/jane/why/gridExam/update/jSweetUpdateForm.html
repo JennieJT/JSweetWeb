@@ -34,14 +34,15 @@
         </span>
     </div>
 
-    <div class=current-state-div>
-        <span class="version-label-span jsweet-middle-col-4" id=version-state-label> current state: </span>
-        <span class=version-state-span id=version-state-select>
-            <select name="publishType" class="jsweet-middle-col-4 version-state-select">
-							<option value="testPublish">test publish</option>
-							<!-- <option value="female">female</option> -->
+    <div class="jsweet-form-group jsweet-middle-col-12">
+        <label class="jsweet-middle-col-3"> current state: </label>
+        <div class="jsweet-inner-form jsweet-middle-col-8" id=version-state-select>
+            <select name="publishType">
+                            <option value="0">no publish</option>
+							<option value="1" selected>test publish</option>
+							<option value="2">official publish</option>
 						</select>
-        </span>
+                    </div>
     </div>
 
     <div class=publish-information-div>
