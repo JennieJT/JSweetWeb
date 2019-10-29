@@ -1,5 +1,6 @@
 package sweet.jane;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -51,21 +52,25 @@ public class UpdateVersionController{
 }
 
 @ResponseBody
-@RequestMapping("currentVersion")
-	public  JsonResult getcurrentVersion(String id) throws IOException {
-	String sql = "select * from original_version_manage version where uuid="+id;
+@RequestMapping("maxVersionNumber")
+	public  JsonResult getMaxVersionNumber() throws IOException {
+	String sql = "select * from original_version_manage version "
+			+ "ORDER BY number_1 DESC ,number_2 DESC ,number_3 DESC ";
 //	+ "where version.invalid= ? and version.app_type=? "
 		Session session = sessionFactory.openSession();
-		OriginalVersionManage res = (OriginalVersionManage) session.createNativeQuery(sql);
-		if (res.getNumber3() < 999) {
-			res.setNumber3(res.getNumber3() + 1);
-		} else if (res.getNumber2()< 99) {
+		List<OriginalVersionManage> result = session.createNativeQuery(sql,OriginalVersionManage.class)
+				.getResultList();
+		OriginalVersionManage tmp=result.get(0);
+		OriginalVersionManage res=new OriginalVersionManage();
+		if (tmp.getNumber3() < 999) {
+			res.setNumber3(tmp.getNumber3() + 1);
+		} else if (tmp.getNumber2()< 99) {
 			res.setNumber3(1);
-			res.setNumber2(res.getNumber2() + 1);
+			res.setNumber2(tmp.getNumber2() + 1);
 		} else {
 			res.setNumber3(1);
 			res.setNumber2(1);
-			res.setNumber1(res.getNumber1() + 1 );
+			res.setNumber1(tmp.getNumber1() + 1 );
 		}
 	JsonResult r=new JsonResult();
 	r.setMessage("Hello");
@@ -76,21 +81,35 @@ public class UpdateVersionController{
 }
 
 @ResponseBody
+@RequestMapping("currentVersion")
+	public  JsonResult getcurrentVersion(SelectedAttributes target) throws IOException {
+	String sql = "select * from original_version_manage version where uuid="+target.getUuid();
+//	+ "where version.invalid= ? and version.app_type=? "
+		Session session = sessionFactory.openSession();
+		List<OriginalVersionManage> result = session.createNativeQuery(sql,OriginalVersionManage.class)
+				.getResultList();
+		OriginalVersionManage res=result.get(0);
+	JsonResult r=new JsonResult();
+	r.setMessage("Hello");
+	r.setCode(1);
+	r.setSuccess(true);
+	r.setData(res);
+	return r;
+}
+@ResponseBody
 @RequestMapping("paramForm")
 public  JsonResult getParamForm(OriginalVersionManage result2) throws IOException {
-	String sql2="SELECT o FROM OriginalVersionManage o";
-	//OriginalVersionManage result=new OriginalVersionManage(form);
 	Session session = sessionFactory.openSession();
 	String publisher="c8f1ba6c7cf842409aba43206e9f7442";
 	//List<OriginalVersionManage> result2=session.createQuery(sql2).list();
-	result2.setPublishType("1");
+	result2.setPublishType("0");
 	result2.setAppType("h5");
 	result2.setCreateUser(publisher);
 	result2.setInvalid("1");
 	result2.setLastModifyUser(publisher);
 	result2.setOnFlag("1");
 	result2.setOperStatus("1");
-	result2.setPublishDate("2019-10-25");
+	result2.setPublishDate(new Date().toString());
 	result2.setPublisher(publisher);
 	session.beginTransaction();
 	session.saveOrUpdate(result2);

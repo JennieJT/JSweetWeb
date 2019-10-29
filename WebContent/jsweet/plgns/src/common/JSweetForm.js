@@ -82,6 +82,8 @@ define([], function () {
                 }
             )
         }
+
+        /** get all the values from a form */
         JSweetForm.prototype.serialize = function () {
             var serializeObj = {};
             var array = $("#" + config.id).serializeArray();
@@ -111,6 +113,7 @@ define([], function () {
             }
             return serializeObj;
         }
+          /** get all the values from an object to a form */
         JSweetForm.prototype.deserialize = function (data) {
             for (var i in data) {
                 var val = data[i];

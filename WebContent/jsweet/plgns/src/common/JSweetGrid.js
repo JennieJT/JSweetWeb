@@ -7,6 +7,7 @@ define([], function () {
         var param
         var curPage
         var rowNum
+        var _curNum
         var _gridData=[]
         var _id=args.id
         if(!_id){
@@ -77,7 +78,7 @@ define([], function () {
         JSweetGrid.prototype.checkedRow = function (rowNum) {
             var rowBeingChecked = [];
             var index=0;
-            var selected = $("#jsweet_table_example [name=jsweet_td_selected]");
+            var selected = $("#"+_id+" [name=jsweet_td_selected]");
             for (var i = 0; i < selected.length; i++) {
                 if (rowNum==undefined&&selected[i].checked) {
                     rowBeingChecked.push($("input").index(selected[i]));
@@ -153,7 +154,17 @@ define([], function () {
                 $("#"+_id).append(tempHTML);
             }
          }
-         return new JSweetGrid()
+         JSweetGrid.prototype.addRowClickedListener=function(args){
+             $("#"+_id).on("jsweetClickRow",args.data,$.proxy(args.callback,this)) 
+         }
+         //why??
+         var thisObj=new JSweetGrid();
+         var trclick=function(){
+             _curNum=$("tr").index($(event.target).closest("tr")[0]);
+             $("#"+_id).trigger("jsweetClickRow",{curNum:_curNum,data:_gridData});
+         }
+         $("#"+_id).click("tr",trclick)
+         return thisObj
     }
     return factory
 });
