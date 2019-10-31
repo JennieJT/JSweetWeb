@@ -2,7 +2,7 @@ require(["JSweetGrid", "JSweetDlg", "JSweetForm", "text!jsweet/jane/why/gridExam
     $(document).ready(function () {
         /**@type {JSweetGrid} */
         var grid = JsweetGrid({ id: "jsweet_table", templeteId: "each_row" })
-
+        var jform = Jform({ form_id: "version-form" });
         grid.load({
             url: "jswt/updateVersion/fetchTable",
             param: {},
@@ -18,12 +18,12 @@ require(["JSweetGrid", "JSweetDlg", "JSweetForm", "text!jsweet/jane/why/gridExam
                 title: "version information",
                 onload: function (e) {
                     /** @type {JSweetForm} */
-                     var jform = Jform({ id: "version-form" });
+//                     var jform = Jform({ id: "version-form" });
                      jform.load({url:"jswt/updateVersion/maxVersionNumber"})
                     $('#save_version_dlg .jsweet-okay').click(function () {
                         //get all the value from the form
                         //jquery serialize function: get all the data from the form as key and value;
-                        var jform = Jform({ id: "version-form" });
+                        
                         var x = jform.serialize();
                         var magicSerialJson = x;
                         var why = new Date(2019, 10, 24, 1, 1, 1, 1);
@@ -51,7 +51,6 @@ require(["JSweetGrid", "JSweetDlg", "JSweetForm", "text!jsweet/jane/why/gridExam
                                 }
                             }
                         )
-                        console.info(magicSerialJson);
                     });
 
                 }
@@ -67,7 +66,6 @@ require(["JSweetGrid", "JSweetDlg", "JSweetForm", "text!jsweet/jane/why/gridExam
                     smlSize: "large",
                     title: "version information",
                     onload: function (e) {
-                        var jform = Jform({ id: "version-form" });
                     	jform.load({url:"jswt/updateVersion/currentVersion",
                     		data: data.data[data.curNum-1]
                     	})   	 
@@ -81,7 +79,6 @@ require(["JSweetGrid", "JSweetDlg", "JSweetForm", "text!jsweet/jane/why/gridExam
                                 {
                                     url: "jswt/updateVersion/paramForm",
                                     data: result,
-                                    type: "post",
                                     success: function (d) {
                                         if (d.success) {
                                             alert('success')
@@ -102,6 +99,34 @@ require(["JSweetGrid", "JSweetDlg", "JSweetForm", "text!jsweet/jane/why/gridExam
                 dlg = Dlg(args)
                 dlg.modal()
             }});
+            
+            $("#official_publish_button").click(function(e,data){
+                var dataChecked = grid.getDataChecked();
+                var dcl=dataChecked.length;
+                dcl!=1&&alert("choose only one row for official publish")
+                if(dcl==1){
+                    var magicSerialJson=dataChecked[0];
+                    $.ajax(
+                        {
+                            url: "jswt/updateVersion/toOfficialType",
+                            data: magicSerialJson,
+                            success: function (d) {
+                                if (d.success) {
+                                    alert('success')
+                                    grid.load({
+                                        url: "jswt/updateVersion/fetchTable"});
+                                    grid.refresh();
+                                } else {
+                                    alert('fail')
+                                }
+                            }, error: function () {
+                                alert('error occur')
+                            }
+                        }
+                    )
+                }
+            });
+            
     })
     });
 

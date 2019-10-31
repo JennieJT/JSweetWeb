@@ -115,7 +115,6 @@ require([/**"JSweetPage",*/"JSweetForm", "JSweetDlg", "JSweetGrid", "text!" + "j
             if (data) {
                 nameToEdit = data["name"];
             } else {
-                var hi = grid.checkedRow();
                 var dataChecked = grid.getDataChecked();
                 if (dataChecked.length > 0) {
                     nameToEdit = dataChecked[0]["name"];

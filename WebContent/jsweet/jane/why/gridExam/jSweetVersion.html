@@ -7,11 +7,12 @@
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="https://kit.fontawesome.com/64f85c0652.js"></script>
     <script type="text/javascript" src="jsweet/plgns/deps/require/require.js"></script>
-    <script type="text/javascript" src="jsweet/jane/why/gridExam/jSweetVersion.js"></script>
+   
 
 </head>
 <body>
     <script type="text/javascript" src="jsweet/plgns/js/jsweetbegin.js"></script>
+     <script type="text/javascript" src="jsweet/jane/why/gridExam/jSweetVersion.js"></script>
     <div class=top>
     <span id='img'>
         <img src="jsweet/jane/why/gridExam/logo.png"></img>
@@ -29,7 +30,7 @@
                                 <a class=toolbar-a id="test_publish_button"> test publish </a>
                             </span>
                             <span class=toolbar-span>
-                                <a class=toolbar-a> official publish </a>
+                                <a class=toolbar-a id="official_publish_button"> official publish </a>
 
                             </span>
                             <span class=toolbar-span>
@@ -39,7 +40,9 @@
                 <table class=version-table>
                     <tbody class=toolbar-tbody id=jsweet_table>
                         <tr id='head'>
-                            <th class="table-th" width="15%">version number</th>
+                            <th class="table-th" width="15%">
+                                <input type="checkbox" name="version-number" value="all">version number
+                            </th>
                             <th class="table-th" width="15%">publisher</th>
                             <th class="table-th" width="15%">publish date</th>
                             <th class="table-th" width="15%">publish type</th>
@@ -48,12 +51,15 @@
                         </tr>
                         <template id='each_row'>
                             <tr id="table_line">
-                                <td ><a class=update-version id={{uuid}}>{{number1}}.{{number2}}.{{number3}}</a></th>
-                                <td>{{userName}}</th>
-                                <td>{{publishDate}}</th>
-                                <td>{{publishType}}</th>
-                                <td>{{publishNotes}}</th>
-                                <td>{{updateList}}</th>
+                                <td >
+                                <input class=official-link type="checkbox" value={{uuid}}>
+                                <a class=update-a id={{uuid}}>{{number1}}.{{number2}}.{{number3}}</a>
+                                </td>
+                                <td>{{userName}}</td>
+                                <td>{{publishDate}}</td>
+                                <td>{{publishType}}</td>
+                                <td>{{publishNotes}}</td>
+                                <td>{{updateList}}</td>
                             </tr>
                             <template>
 
@@ -64,6 +70,7 @@
         <div class=statebar></div>
     </div>
     </div>
+    
 </body>
 
 </html>

@@ -10,10 +10,13 @@ define([], function () {
         var _curNum
         var _gridData=[]
         var _id=args.id
+        //id is necessary
         if(!_id){
             console.warn("id required!!!!!")
         }
+
         var _templeteId=args.templeteId
+        //gridData has to be an array.
         var _success=function (d) {
             //d is an array.
             if (d.success) {
@@ -25,9 +28,10 @@ define([], function () {
                 alert('fail')
             }
         }
-
+        //constructor. no function actually.
         var JSweetGrid = function () {
         }
+
         /**
          * @param {TJSweetGridLoad} args
          */
@@ -54,15 +58,7 @@ define([], function () {
                     /*送出的数据格式，报文头部   Content-Type*/
                     //contentType  
                     //报文头部的 Method
-                    type: "post",
-                    /*Accept 字段
-                    "xml": 返回 XML 文档，可用 jQuery 处理。
-                    "html": 返回纯文本 HTML 信息；包含的 script 标签会在插入 dom 时执行。
-                    "script": 返回纯文本 JavaScript 代码。不会自动缓存结果。除非设置了 "cache" 参数。注意：在远程请求时(不在同一个域下)，所有 POST 请求都将转为 GET 请求。（因为将使用 DOM 的 script标签来加载）
-                    "json": 返回 JSON 数据
-                    "jsonp": JSONP 格式。使用 JSONP 形式调用函数时，如 "myurl?callback=?" jQuery 将自动替换 ? 为正确的函数名，以执行回调函数。
-                    "text": 返回纯文本字符串*/
-                    //dataType:"json",
+                    type: "post",           
                     success: _success, 
                     error: function () {
                         alert('error occur')
@@ -72,22 +68,20 @@ define([], function () {
         }
         /**
         * return the number of rows being checked
-         * @param {number} rowNum the row to be checked
-         * @returns {number}
-         */
+        **/
         JSweetGrid.prototype.checkedRow = function (rowNum) {
             var rowBeingChecked = [];
             var index=0;
-            var selected = $("#"+_id+" [name=jsweet_td_selected]");
+            var selected = $("#"+_id+" [type=checkbox]");
             for (var i = 0; i < selected.length; i++) {
                 if (rowNum==undefined&&selected[i].checked) {
-                    rowBeingChecked.push($("input").index(selected[i]));
+                    rowBeingChecked.push($("input").index(selected[i])-1);
                 }
                 if(rowNum!=undefined){
                     var toSelect=rowNum[index];
                     if(i==toSelect){
                         $(selected[i]).attr("checked",true)
-                        rowBeingChecked.push($("input").index(selected[i]))
+                        rowBeingChecked.push($("input").index(selected[i])-1)
                         index=index+1;
                         if(index>=rowNum.length){
                             break;
@@ -95,12 +89,12 @@ define([], function () {
                     }
                 }
             }
-            if(rowBeingChecked==""){
-                alert("Nothing selected!!")
-                return;
-            }
             return rowBeingChecked;
         }
+         /**
+     * get the data being checked
+     * return an array 
+     */
         JSweetGrid.prototype.getDataChecked = function (){
             var dataChecked=[];
             var indices=this.checkedRow();
@@ -120,15 +114,6 @@ define([], function () {
          * row was checked
          * @param {TJSweetEvent} args
          */
-        JSweetGrid.prototype.addLoadFinishedListener = function (args) { }
-        /** 
-        * @param {TJSweetEvent} args
-        */
-        JSweetGrid.prototype.addRowCheckedListener = function (args) { }
-        /** 
-        * @param {TJSweetEvent} args
-        */
-        JSweetGrid.prototype.addEventListener = function (args) { }
         JSweetGrid.prototype.refresh = function () {
         	  function compare(num1,num2,num3){
      	         return function(obj1,obj2){
@@ -138,7 +123,10 @@ define([], function () {
      	         }
         	    }
         	    var sortObj = _gridData.sort(compare("number1","number2","number3"));
+            $("#"+_id+" #table_line").remove();
             $("#"+_id+" td").remove();
+            var template=$("#"+_id+" #each_row");
+     
             for (var i = 0; i < _gridData.length; i++) {
                 var person = _gridData[i];
                 //must be id!!!
@@ -153,17 +141,24 @@ define([], function () {
                 })
                 $("#"+_id).append(tempHTML);
             }
+            $("#"+_id+" .update-a").click(trclick)      
          }
          JSweetGrid.prototype.addRowClickedListener=function(args){
+           
              $("#"+_id).on("jsweetClickRow",args.data,$.proxy(args.callback,this)) 
          }
+         
+        
+        
+        var trclick=function(){
+            var awhat=$(event.target).closest("tr");
+            var bwhat=awhat[0]
+            _curNum=$("tr" ).index(bwhat);
+            _curNum>0&&$("#"+_id).trigger("jsweetClickRow",{curNum:_curNum,data:_gridData});
+        }
          //why??
          var thisObj=new JSweetGrid();
-         var trclick=function(){
-             _curNum=$("tr").index($(event.target).closest("tr")[0]);
-             $("#"+_id).trigger("jsweetClickRow",{curNum:_curNum,data:_gridData});
-         }
-         $("#"+_id).click("tr",trclick)
+         
          return thisObj
     }
     return factory

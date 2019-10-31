@@ -1,7 +1,7 @@
 define([], function () {
     // global variable
     const defArgs = {
-        id: ""
+        form_id: ""
     }
     var factory = function (args) {
         var _dirtied = false;
@@ -13,38 +13,37 @@ define([], function () {
                     this.isDirtied(true);
                 }, this));
 
-        //         //validate
-        //         jQuery.validator.setDefaults({ "errorElement": "div" })
-        //         $.validator.addMethod("jsweetFirstNotB", function (value, element, params) {
-        //             return params.indexOf(value.charAt(0)) == -1;
-        //         }, jQuery.validator.format("Invalid, First character is {0}"))
-        //         // $.validator.addClassRules("name",{jsweetFirstNotB: "A?EIOU"})
-        //         var voptions={
-        //             errorClass:"jsweet-font-invalid",
-        //             success:function(label){
-        //                 /** @type {JQuery} */
-        //                 var target=label.parent(".jsweet-inner-form");
-        //                 target.removeClass("jsweet-invalid");
-        //                 label.remove();
-        //             },
-        //             /** 
-        //              * @param {JQuery} element
-        //              * @param {JQuery} error
-        //              */
-        //             errorPlacement:function(error,element){
-        //                     var why=element.parent(".jsweet-inner-form")
-        //                     why.addClass("jsweet-invalid")
-        //                     error.css({
-        //                 })
-        //                     why.append(error)
-        //             },
-        //             highlight:function(element,errorClass){
-        
-        //             }
-        //         };
-        //         voptions=$.extend(true,voptions,config.voptions)
-        //         var valid = $("#"+config.id).validate(voptions);
-         }
+            //         //validate
+            //         jQuery.validator.setDefaults({ "errorElement": "div" })
+            900        //             return params.indexOf(value.charAt(0)) == -1;
+            //         }, jQuery.validator.format("Invalid, First character is {0}"))
+            //         // $.validator.addClassRules("name",{jsweetFirstNotB: "A?EIOU"})
+            //         var voptions={
+            //             errorClass:"jsweet-font-invalid",
+            //             success:function(label){
+            //                 /** @type {JQuery} */
+            //                 var target=label.parent(".jsweet-inner-form");
+            //                 target.removeClass("jsweet-invalid");
+            //                 label.remove();
+            //             },
+            //             /** 
+            //              * @param {JQuery} element
+            //              * @param {JQuery} error
+            //              */
+            //             errorPlacement:function(error,element){
+            //                     var why=element.parent(".jsweet-inner-form")
+            //                     why.addClass("jsweet-invalid")
+            //                     error.css({
+            //                 })
+            //                     why.append(error)
+            //             },
+            //             highlight:function(element,errorClass){
+
+            //             }
+            //         };
+            //         voptions=$.extend(true,voptions,config.voptions)
+            //         var valid = $("#"+config.id).validate(voptions);
+        }
         /**
          * @param {TJSweetFormLoad} param
          */
@@ -86,7 +85,7 @@ define([], function () {
         /** get all the values from a form */
         JSweetForm.prototype.serialize = function () {
             var serializeObj = {};
-            var array = $("#" + config.id).serializeArray();
+            var array = $("#" + config.form_id).serializeArray();
             //same name
             var nameArr = [];
             $(array).each(function () {
@@ -113,7 +112,7 @@ define([], function () {
             }
             return serializeObj;
         }
-          /** get all the values from an object to a form */
+        /** get all the values from an object to a form */
         JSweetForm.prototype.deserialize = function (data) {
             for (var i in data) {
                 var val = data[i];
@@ -121,7 +120,7 @@ define([], function () {
                 if (typeName != "checkbox") {
                     $("[name=" + i + "]").val(val);
                 } else {
-                    if(val.length==0){
+                    if (val.length == 0) {
                         continue;
                     }
                     var boxList = val.split(",");
@@ -137,7 +136,7 @@ define([], function () {
                 if (_dirtied) {
                     $("[submit-formID$=" + config.id + "]").removeAttr("disabled");
                 } else {
-                    $("[submit-formID$=" + config.id + "]").attr("disabled","disabled");
+                    $("[submit-formID$=" + config.id + "]").attr("disabled", "disabled");
                 }
 
             }
@@ -150,8 +149,8 @@ define([], function () {
                 return;
             }
             //for validation
-            var d = $("#"+config.id).valid();
-            if(!d){
+            var d = $("#" + config.id).valid();
+            if (!d) {
                 return;
             }
             var magicSerialJson = this.serialize();
@@ -159,7 +158,7 @@ define([], function () {
             if (args.format) {
                 magicSerialJson = args.format(magicSerialJson);
             }
-            var the=this;
+            var the = this;
             $.ajax(
                 {
                     url: args.url,

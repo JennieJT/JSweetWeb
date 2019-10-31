@@ -83,7 +83,7 @@ public class UpdateVersionController{
 @ResponseBody
 @RequestMapping("currentVersion")
 	public  JsonResult getcurrentVersion(SelectedAttributes target) throws IOException {
-	String sql = "select * from original_version_manage version where uuid="+target.getUuid();
+	String sql = "select * from original_version_manage version where uuid='"+target.getUuid()+"'";
 //	+ "where version.invalid= ? and version.app_type=? "
 		Session session = sessionFactory.openSession();
 		List<OriginalVersionManage> result = session.createNativeQuery(sql,OriginalVersionManage.class)
@@ -96,13 +96,35 @@ public class UpdateVersionController{
 	r.setData(res);
 	return r;
 }
+
+@ResponseBody
+@RequestMapping("toOfficialType")
+public  JsonResult getToOfficialType(SelectedAttributes target) throws IOException {
+	String sql = "select * from original_version_manage version where uuid='"+target.getUuid()+"'";
+	Session session = sessionFactory.openSession();
+	List<OriginalVersionManage> result = session.createNativeQuery(sql,OriginalVersionManage.class)
+			.getResultList();
+	OriginalVersionManage res=result.get(0);
+	res.setPublishType("2");
+	session.beginTransaction();
+	session.saveOrUpdate(res);
+	session.getTransaction().commit();
+	session.close();
+
+JsonResult r=new JsonResult();
+r.setCode(1);
+r.setSuccess(true);
+//r.setData(result2);
+return r;
+}
+
 @ResponseBody
 @RequestMapping("paramForm")
 public  JsonResult getParamForm(OriginalVersionManage result2) throws IOException {
 	Session session = sessionFactory.openSession();
 	String publisher="c8f1ba6c7cf842409aba43206e9f7442";
 	//List<OriginalVersionManage> result2=session.createQuery(sql2).list();
-	result2.setPublishType("0");
+	result2.setPublishType("1");
 	result2.setAppType("h5");
 	result2.setCreateUser(publisher);
 	result2.setInvalid("1");
