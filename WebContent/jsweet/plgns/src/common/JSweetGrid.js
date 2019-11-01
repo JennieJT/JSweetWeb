@@ -22,6 +22,7 @@ define([], function () {
             if (d.success) {
                 //convert data to the array
                 _gridData=d.data;
+
                 //view
                 this.theGridObj.refresh();
             } else {
@@ -115,20 +116,37 @@ define([], function () {
          * @param {TJSweetEvent} args
          */
         JSweetGrid.prototype.refresh = function () {
-        	  function compare(num1,num2,num3){
-     	         return function(obj1,obj2){
-     	             var value1 = obj1[num1]*99*999+obj1[num2]*999+obj1[num3];
-     	             var value2 = obj2[num1]*99*999+obj2[num2]*999+obj2[num3];
-     	             return value2 - value1;  
-     	         }
-        	    }
-        	    var sortObj = _gridData.sort(compare("number1","number2","number3"));
+        	//   function compare(num1,num2,num3){
+     	    //      return function(obj1,obj2){
+     	    //          var value1 = obj1[num1]*99*999+obj1[num2]*999+obj1[num3];
+     	    //          var value2 = obj2[num1]*99*999+obj2[num2]*999+obj2[num3];
+     	    //          return value2 - value1;  
+     	    //      }
+            //     }
+            
+                // var sortObj = _gridData.sort(compare("number1","number2","number3"));
+                var sortObj=_gridData
+                if($.isFunction(this.compare)){
+                    sortObj.sort(this.compare);
+                }
+                var c=sortObj.slice(0)
+                this.format(c);
+                // var a="5"
+                // var b={number:"5"}
+                // var what=function(c){
+                //     c="6"
+                // }
+                // var what2=function(c){
+                //     c.number="6";
+                // }
+                // what(a)
+                // what2(b)
             $("#"+_id+" #table_line").remove();
             $("#"+_id+" td").remove();
             var template=$("#"+_id+" #each_row");
      
-            for (var i = 0; i < _gridData.length; i++) {
-                var person = _gridData[i];
+            for (var i = 0; i < c.length; i++) {
+                var person = c[i];
                 //must be id!!!
                 var tempHTML = $("#"+_templeteId).html();
                 // for(var key in person){

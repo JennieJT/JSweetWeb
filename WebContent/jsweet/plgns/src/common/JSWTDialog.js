@@ -21,7 +21,6 @@ define([], function () {
         //constructor
         var JSweetDlg = function () {
         }
-        
         var onClsDlg = function (e) {
             if(config.closing){
                 config.closing();
@@ -59,9 +58,7 @@ define([], function () {
                 }
                 if(config.onload){
                     config.onload()
-                }
-
-                
+                }            
             })
         }
         JSweetDlg.prototype.close = function () {

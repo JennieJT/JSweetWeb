@@ -51,11 +51,10 @@ public class SelectedAttributes implements Serializable {
 	}
 
 	public String getPublishType() {
-		return publishType;
+		return this.publishType;
 	}
-
 	public void setPublishType(String publishType) {
-		this.publishType = publishType;
+		this.publishType=publishType;
 	}
 
 	public String getPublishNotes() {

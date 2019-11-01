@@ -2,12 +2,39 @@ require(["JSweetGrid", "JSweetDlg", "JSweetForm", "text!jsweet/jane/why/gridExam
     $(document).ready(function () {
         /**@type {JSweetGrid} */
         var grid = JsweetGrid({ id: "jsweet_table", templeteId: "each_row" })
+        grid.compare=function(a,b){
+            if(a.number1>b.number1){
+                return -1;
+            }else if(a.number1<b.number1){
+                return 1;
+            }
+            if(a.number2>b.number2){
+                return -1;
+            }
+            else if(a.number2<b.number2){
+                return 1;
+            }
+            if(a.number3>b.number3){
+                return -1;
+            }else if(a.number3<b.number3){
+                return 1;
+            }
+                return 0;    
+        }
+        grid.format=function(data){
+            for(var i=0;i<data.length;i++){
+                var curData=data[i];
+                var curVal=curData["publishType"]
+                curVal=="0"&&(curData["publishType"]="no publish")
+                curVal=="1"&&(curData["publishType"]="test publish")
+                curVal=="2"&&(curData["publishType"]="official publish")
+            }
+        }
         var jform = Jform({ form_id: "version-form" });
         grid.load({
-            url: "jswt/updateVersion/fetchTable",
-            param: {},
-            curPage: 1,
-            rowNum: 0
+            url: "jswt/updateVersion/paginationFetchTable",
+            curPage:2,
+            rowNum:5
         })
         var dlg;
         function popDialog() {
@@ -20,6 +47,7 @@ require(["JSweetGrid", "JSweetDlg", "JSweetForm", "text!jsweet/jane/why/gridExam
                     /** @type {JSweetForm} */
 //                     var jform = Jform({ id: "version-form" });
                      jform.load({url:"jswt/updateVersion/maxVersionNumber"})
+
                     $('#save_version_dlg .jsweet-okay').click(function () {
                         //get all the value from the form
                         //jquery serialize function: get all the data from the form as key and value;
@@ -40,9 +68,11 @@ require(["JSweetGrid", "JSweetDlg", "JSweetForm", "text!jsweet/jane/why/gridExam
                                     if (d.success) {
                                         alert('success')
                                         dlg.close()
-                                        grid.refresh();
-
-
+                                      
+                                            grid.load({
+                                                url: "jswt/updateVersion/fetchTable"});
+                                            grid.refresh();
+                                     
                                     } else {
                                         alert('fail')
                                     }

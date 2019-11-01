@@ -1,5 +1,6 @@
 package sweet.jane;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -14,12 +15,14 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 import org.hibernate.transform.Transformers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.OriginalVersionManage;
+import model.Pagination;
 import model.SelectedAttributes;
 import sweet.jane.model.Course;
 import sweet.jane.model.JsweetUser;
@@ -36,12 +39,19 @@ public class UpdateVersionController{
 	public  JsonResult fetchTable() throws IOException {
 		String  sql1="SELECT uuid, v.number_1 as number1, v.number_2 as number2, v.number_3 as number3, u.user_name as userName, v.publish_date as publishDate, "
 				+ "publish_type as publishType, publish_notes as publishNotes, update_list as updateList \n" + 
-				" FROM original_version_manage v JOIN org_user u on u.user_uuid=v.publisher;";
-			//"WHERE publisher=orgUser.userUuid"
+				" FROM original_version_manage v JOIN org_user u on u.user_uuid=v.publisher "
+				+ "ORDER BY number_1 DESC ,number_2 DESC ,number_3 DESC"
+				;	
 		Session session = sessionFactory.openSession();
 		List<SelectedAttributes> result = session.createNativeQuery(sql1)
 			.setResultTransformer( Transformers.aliasToBean( SelectedAttributes.class ) )
 			.list();
+		//experiment
+		Query<SelectedAttributes> exp=session.createNativeQuery(sql1)
+				.setResultTransformer( Transformers.aliasToBean( SelectedAttributes.class ) );
+		exp.setFirstResult(0);
+		exp.setMaxResults(5);
+		List<SelectedAttributes> page1=exp.list();
 
 	JsonResult r=new JsonResult();
 	r.setMessage("Hello");
@@ -50,6 +60,29 @@ public class UpdateVersionController{
 	r.setData(result);
 	return r;
 }
+
+@ResponseBody
+@RequestMapping("paginationFetchTable")
+	public JsonResult getPaginationFetchTable(Pagination frontData)throws IOException{
+	String  sql="SELECT uuid, v.number_1 as number1, v.number_2 as number2, v.number_3 as number3, u.user_name as userName, v.publish_date as publishDate, "
+			+ "publish_type as publishType, publish_notes as publishNotes, update_list as updateList \n" + 
+			" FROM original_version_manage v JOIN org_user u on u.user_uuid=v.publisher "
+			+ "ORDER BY number_1 DESC ,number_2 DESC ,number_3 DESC"
+			;	
+	Session session = sessionFactory.openSession();
+	Query<SelectedAttributes> exp=session.createNativeQuery(sql)
+			.setResultTransformer( Transformers.aliasToBean( SelectedAttributes.class ) );
+	exp.setFirstResult((frontData.getCurPage()-1)*frontData.getRowNum());
+	exp.setMaxResults(frontData.getRowNum());
+	List<SelectedAttributes> result=exp.list();
+
+JsonResult r=new JsonResult();
+r.setMessage("Hello");
+r.setCode(1);
+r.setSuccess(true);
+r.setData(result);
+return r;
+	}
 
 @ResponseBody
 @RequestMapping("maxVersionNumber")
@@ -72,6 +105,7 @@ public class UpdateVersionController{
 			res.setNumber2(1);
 			res.setNumber1(tmp.getNumber1() + 1 );
 		}
+		res.setPublishType("1");
 	JsonResult r=new JsonResult();
 	r.setMessage("Hello");
 	r.setCode(1);
@@ -131,7 +165,8 @@ public  JsonResult getParamForm(OriginalVersionManage result2) throws IOExceptio
 	result2.setLastModifyUser(publisher);
 	result2.setOnFlag("1");
 	result2.setOperStatus("1");
-	result2.setPublishDate(new Date().toString());
+	SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
+	result2.setPublishDate(ft.format(new Date()));
 	result2.setPublisher(publisher);
 	session.beginTransaction();
 	session.saveOrUpdate(result2);

@@ -189,11 +189,11 @@ public class OriginalVersionManage implements Serializable {
 	}
 
 	public String getPublishType() {
-		return this.publishType;
+		 return this.publishType;
 	}
 
 	public void setPublishType(String publishType) {
-		this.publishType = publishType;
+		this.publishType=publishType;
 	}
 
 	public String getPublisher() {
