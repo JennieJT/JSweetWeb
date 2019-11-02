@@ -3,10 +3,11 @@ define([], function () {
          *  @param {TJSweetGridConf} args
          * */
     var factory = function (args) {
-        var url
-        var param
-        var curPage
-        var rowNum
+        var thisObj
+        var _url
+        var _curPage=1
+        var _rowNum=5
+        var _allNum
         var _curNum
         var _gridData=[]
         var _id=args.id
@@ -14,15 +15,15 @@ define([], function () {
         if(!_id){
             console.warn("id required!!!!!")
         }
-
         var _templeteId=args.templeteId
         //gridData has to be an array.
         var _success=function (d) {
             //d is an array.
             if (d.success) {
                 //convert data to the array
-                _gridData=d.data;
-
+                var data=d.data;
+                _gridData=data["data"];
+                _allNum=data["countRow"];
                 //view
                 this.theGridObj.refresh();
             } else {
@@ -32,29 +33,39 @@ define([], function () {
         //constructor. no function actually.
         var JSweetGrid = function () {
         }
-
         /**
          * @param {TJSweetGridLoad} args
          */
+        JSweetGrid.prototype.getParam=function(){
+            var result={
+                url:_url,
+                curPage:_curPage,
+                rowNum:_rowNum,
+                allNum:_allNum,
+                curNum:_curNum,
+                gridData:_gridData,
+                id:_id
+            }
+            return result;
+        }
         JSweetGrid.prototype.load = function (args) {
-            args&&args.url&&(url=args.url);
+            args&&args.url&&(_url=args.url);
             // if(typeof args!="undefined"){
             //     if(typeof args.url!="undefined"){
             //         url=args.url
             //     }
             // }
             args&&args.param&&(param=args.param);
-            args&&args.curPage&&(curPage=args.curPage);
-            args&&args.rowNum&&(rowNum=args.rowNum);
+            args&&args.curPage&&(_curPage=args.curPage);
+            args&&args.rowNum&&(_rowNum=args.rowNum);
             var the=this
             $.ajax(
                 {
                     theGridObj:the,
-                    url: url,
+                    url: _url,
                     data:{
-                        param:param,
-                        curPage:curPage,
-                        rowNum:rowNum
+                        curPage:_curPage,
+                        rowNum:_rowNum
                     },
                     /*送出的数据格式，报文头部   Content-Type*/
                     //contentType  
@@ -159,15 +170,13 @@ define([], function () {
                 })
                 $("#"+_id).append(tempHTML);
             }
-            $("#"+_id+" .update-a").click(trclick)      
+            $("#"+_id+" .update-a").click(trclick)  
+            $("#total_rows").text(_allNum)                
          }
          JSweetGrid.prototype.addRowClickedListener=function(args){
            
              $("#"+_id).on("jsweetClickRow",args.data,$.proxy(args.callback,this)) 
          }
-         
-        
-        
         var trclick=function(){
             var awhat=$(event.target).closest("tr");
             var bwhat=awhat[0]
@@ -175,8 +184,48 @@ define([], function () {
             _curNum>0&&$("#"+_id).trigger("jsweetClickRow",{curNum:_curNum,data:_gridData});
         }
          //why??
-         var thisObj=new JSweetGrid();
-         
+         thisObj=new JSweetGrid();
+         var pageShow=$(" .cur-page-input")
+         $(" .cur-page-input").change(function(){
+             var pageData=$(this).val();
+             _curPage=pageData;
+             thisObj.load()
+
+         });
+         $(".next-page-a i").click(function(){
+             //testify if its the last one.
+             //if it is.
+             if(_curPage*_rowNum<_allNum){
+             _curPage=_curPage+1;
+             pageShow.val(_curPage);
+             thisObj.load()
+             }
+         });
+         $(".prev-page-a i").click(function(){
+            //testify if its the last one.
+            //if it is.
+            if(_curPage>1){
+            _curPage=_curPage-1;
+            pageShow.val(_curPage);
+            thisObj.load()
+            }
+        });
+         $(".first-page-a i").click(function(){
+             _curPage=1;
+             pageShow.val(_curPage);
+             thisObj.load();
+         });
+         $(".last-page-a i").click(function(){
+            _curPage=Math.ceil(_allNum/_rowNum);
+            pageShow.val(_curPage);
+            thisObj.load();
+        });
+        $(" .row-num-span>select").change(function(){
+            var rowNum=$(this).val();
+            _rowNum=rowNum;
+            _curPage=1;
+            thisObj.load()
+        });
          return thisObj
     }
     return factory

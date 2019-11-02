@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <base href="../../../../">
     <meta charset="UTF-8">
@@ -7,17 +8,18 @@
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="https://kit.fontawesome.com/64f85c0652.js"></script>
     <script type="text/javascript" src="jsweet/plgns/deps/require/require.js"></script>
-   
+
 
 </head>
+
 <body>
     <script type="text/javascript" src="jsweet/plgns/js/jsweetbegin.js"></script>
-     <script type="text/javascript" src="jsweet/jane/why/gridExam/jSweetVersion.js"></script>
+    <script type="text/javascript" src="jsweet/jane/why/gridExam/jSweetVersion.js"></script>
     <div class=top>
-    <span id='img'>
-        <img src="jsweet/jane/why/gridExam/logo.png"></img>
-    </span>
-    <span>China Software and Service, Co., Ltd</span>
+        <span id='img'>
+            <img src="jsweet/jane/why/gridExam/logo.png"></img>
+        </span>
+        <span>China Software and Service, Co., Ltd</span>
     </div>
     <div class=elseTop>
         <div class=navigator></div>
@@ -26,61 +28,84 @@
                 <div class=menubar></div>
                 <div class=h1-title>Version Information Lists</div>
                 <div class=toolbar id=jsweet_toolbar>
-                            <span class=toolbar-span>
-                                <a class=toolbar-a id="test_publish_button"> test publish </a>
-                            </span>
-                            <span class=toolbar-span>
-                                <a class=toolbar-a id="official_publish_button"> official publish </a>
+                    <span class=toolbar-span>
+                        <a class=toolbar-a id="test_publish_button"> test publish </a>
+                    </span>
+                    <span class=toolbar-span>
+                        <a class=toolbar-a id="official_publish_button"> official publish </a>
 
-                            </span>
-                            <span class=toolbar-span>
-                                <a class=toolbar-a> download </a>
-                            </span>
+                    </span>
+                    <span class=toolbar-span>
+                        <a class=toolbar-a> download </a>
+                    </span>
                 </div>
-                <table class=version-table>
-                    <tbody class=toolbar-tbody id=jsweet_table>
-                        <tr id='head'>
-                            <th class="table-th" width="15%">
-                                <input type="checkbox" name="version-number" value="all">version number
-                            </th>
-                            <th class="table-th" width="15%">publisher</th>
-                            <th class="table-th" width="15%">publish date</th>
-                            <th class="table-th" width="15%">publish type</th>
-                            <th class="table-th" width="15%">publish notes</th>
-                            <th class="table-th" width="15%">update list</th>
-                        </tr>
-                        <template id='each_row'>
-                            <tr id="table_line">
-                                <td >
-                                <input class=official-link type="checkbox" value={{uuid}}>
-                                <a class=update-a id={{uuid}}>{{number1}}.{{number2}}.{{number3}}</a>
-                                </td>
-                                <td>{{userName}}</td>
-                                <td>{{publishDate}}</td>
-                                <td>{{publishType}}</td>
-                                <td>{{publishNotes}}</td>
-                                <td>{{updateList}}</td>
+                <div class=table-div>
+                    <table class=version-table>
+                        <tbody class=toolbar-tbody id=jsweet_table>
+                            <tr id='head'>
+                                <th class="table-th" width="15%">
+                                    <input type="checkbox" name="version-number" value="all">version number
+                                </th>
+                                <th class="table-th" width="15%">publisher</th>
+                                <th class="table-th" width="15%">publish date</th>
+                                <th class="table-th" width="15%">publish type</th>
+                                <th class="table-th" width="15%">publish notes</th>
+                                <th class="table-th" width="15%">update list</th>
                             </tr>
-                            <template>
-
-                    </tbody>
-                </table>
-                <div class=grid-pagination>
-                    <a title="first page" class=first-page></a>
-                    <a class=prev-page></a>
-                    <span class=cur-page></span>
-                    <a class=next-page></a>
-                    <a class=last-page></a>
-                    <a class=refresh></a>
-                    <span class=row-num></span>
-                    <span class=total-data></span>
+                        </tbody>
+                    </table>
                 </div>
+                <div class=grid-pagination>
+                        <a title="first page" class=first-page-a>
+                                <i class="fas fa-angle-double-left"></i>
+                        </a>
+                        <a class=prev-page-a>
+                                <i class="fas fa-angle-left"></i>
+                        </a>
+                        <span class=cur-page-span>
+                            <input class="cur-page-input" type="text" value="1">
+                        </span>
+                        <a class=next-page-a>
+                                <i class="fas fa-angle-right"></i>
+                        </a>
+                        <a class=last-page-a>
+                                <i class="fas fa-angle-double-right"></i>
+                        </a>
+                        <a class=refresh-a>
+                            <i class="fas fa-redo-alt"></i>
+                        </a>
+                        <span class=row-num-span>
+                            <select>
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                            </select>
+                            rows per page total:
+                            <span id="total_rows"></span>
+                        </span>
+                    </div>
             </div>
+                <div class=statebar> <i class="fas fa-heart"></i> jsweet project <i class="fas fa-heart"></i></div>
         </div>
-        <div class=statebar>jsweet project</div>
+       
+        
     </div>
     </div>
-    
+    <template id='each_row'>
+            <tr id="table_line">
+                <td>
+                    <input class=official-link type="checkbox" value={{uuid}}>
+                    <a class=update-a id={{uuid}}>{{number1}}.{{number2}}.{{number3}}</a>
+                </td>
+                <td>{{userName}}</td>
+                <td>{{publishDate}}</td>
+                <td>{{publishType}}</td>
+                <td>{{publishNotes}}</td>
+                <td>{{updateList}}</td>
+            </tr>
+        </template>
+
 </body>
 
 </html>

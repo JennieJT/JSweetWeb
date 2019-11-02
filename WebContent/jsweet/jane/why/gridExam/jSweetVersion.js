@@ -33,8 +33,8 @@ require(["JSweetGrid", "JSweetDlg", "JSweetForm", "text!jsweet/jane/why/gridExam
         var jform = Jform({ form_id: "version-form" });
         grid.load({
             url: "jswt/updateVersion/paginationFetchTable",
-            curPage:2,
-            rowNum:5
+            curPage:grid.getParam['curPage'],
+            rowNum:grid.getParam['rowNum']
         })
         var dlg;
         function popDialog() {
@@ -67,10 +67,8 @@ require(["JSweetGrid", "JSweetDlg", "JSweetForm", "text!jsweet/jane/why/gridExam
                                 success: function (d) {
                                     if (d.success) {
                                         alert('success')
-                                        dlg.close()
-                                      
-                                            grid.load({
-                                                url: "jswt/updateVersion/fetchTable"});
+                                        dlg.close();
+                                            grid.load();
                                             grid.refresh();
                                      
                                     } else {
@@ -144,7 +142,7 @@ require(["JSweetGrid", "JSweetDlg", "JSweetForm", "text!jsweet/jane/why/gridExam
                                 if (d.success) {
                                     alert('success')
                                     grid.load({
-                                        url: "jswt/updateVersion/fetchTable"});
+                                        url: "jswt/updateVersion/paginationFetchTable"});
                                     grid.refresh();
                                 } else {
                                     alert('fail')

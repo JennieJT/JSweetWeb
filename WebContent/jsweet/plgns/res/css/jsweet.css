@@ -152,10 +152,12 @@ body {
 }
 
 .far, .fas:hover {
-	color: rgb(197, 88, 121);
+	color: rgb(170, 191, 237);
 	cursor: pointer;
 }
-
+.fas{
+	color:gray;
+}
 a:hover {
 	color: grey;
 	cursor: pointer;
@@ -297,7 +299,8 @@ label {
     padding-left:1rem;
     font-size:1.5rem;
     line-height:4rem;
-    font-color:white;
+	font-color:white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     
 
 }
@@ -313,7 +316,8 @@ label {
     border-top:0.1px solid rgb(184, 180, 180);
     border-right:0.1px solid rgb(184, 180, 180);
     margin-right:10px;
-    background-color: rgb(241, 240, 240);
+	background-color: rgb(241, 240, 240);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .main{
 	position:relative;
@@ -336,7 +340,8 @@ label {
 
 .toolbar{
     /* height:40px; */
-    border-top:0.1px solid rgb(184, 180, 180);
+	border-top:0.1px solid rgb(184, 180, 180);
+	
 }
 .toolbar-a:hover{
     color:white;
@@ -363,13 +368,39 @@ tbody{
     margin:0 0 0 0;
     padding:0 0 0 0;
 }
-.content{
+.main>.content{
 	height:calc(95% - 20px);
     width:100%;
      background-color: rgb(241, 240, 240);
-     display:table;
+	 display:table;
+	 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.main>.statebar{
+	font-size:1rem;
+	line-height:2rem;
+	bottom: 100%;
+	width:100%;
+	text-align:center;
+	font-family: cursive;
+}
+.table-div{
+	height:calc(100% - 140px);
+	overflow:auto;
 }
 
+.grid-pagination{
+position:relative;
+top:calc(100% - 20px);
+bottom:100%;
+width:100%;
+}
+.row-num-span, .total-data-span, #total_rows{
+	float:right;
+}
+.first-page-a{
+	height:10px;
+	width:10px;
+}
 
 .menubar-table{
 	width:400px;
@@ -381,6 +412,7 @@ tbody{
 	border-top:0.1px solid grey;
 	vertical-align:middle;
 }
+
 td{
 	width: calc(100%/ 6);
 	vertical-align:inherit;
@@ -451,4 +483,6 @@ a{
 	height:100%;
 	width:100%;
 }
-.statebar{}
+.cur-page-input{
+	width:30px;
+}

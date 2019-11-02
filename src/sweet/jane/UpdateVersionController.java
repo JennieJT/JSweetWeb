@@ -1,5 +1,6 @@
 package sweet.jane;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -21,6 +22,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import model.DataAndCount;
 import model.OriginalVersionManage;
 import model.Pagination;
 import model.SelectedAttributes;
@@ -64,6 +66,7 @@ public class UpdateVersionController{
 @ResponseBody
 @RequestMapping("paginationFetchTable")
 	public JsonResult getPaginationFetchTable(Pagination frontData)throws IOException{
+	DataAndCount result =new DataAndCount();
 	String  sql="SELECT uuid, v.number_1 as number1, v.number_2 as number2, v.number_3 as number3, u.user_name as userName, v.publish_date as publishDate, "
 			+ "publish_type as publishType, publish_notes as publishNotes, update_list as updateList \n" + 
 			" FROM original_version_manage v JOIN org_user u on u.user_uuid=v.publisher "
@@ -74,8 +77,15 @@ public class UpdateVersionController{
 			.setResultTransformer( Transformers.aliasToBean( SelectedAttributes.class ) );
 	exp.setFirstResult((frontData.getCurPage()-1)*frontData.getRowNum());
 	exp.setMaxResults(frontData.getRowNum());
-	List<SelectedAttributes> result=exp.list();
-
+	List<SelectedAttributes> data=exp.list();
+	result.setData(data);
+	//total count
+	String countQ = "Select count(uuid) "
+			+ "FROM original_version_manage v JOIN org_user u on u.user_uuid=v.publisher";
+	Query countQuery = session.createNativeQuery(countQ);
+	BigInteger countResults = (BigInteger) countQuery.uniqueResult();
+	String count=countResults.toString();
+	result.setCountRow(count);
 JsonResult r=new JsonResult();
 r.setMessage("Hello");
 r.setCode(1);
@@ -97,12 +107,15 @@ return r;
 		OriginalVersionManage res=new OriginalVersionManage();
 		if (tmp.getNumber3() < 999) {
 			res.setNumber3(tmp.getNumber3() + 1);
+			res.setNumber2(tmp.getNumber2());
+			res.setNumber1(tmp.getNumber1());
 		} else if (tmp.getNumber2()< 99) {
-			res.setNumber3(1);
+			res.setNumber3(tmp.getNumber3());
 			res.setNumber2(tmp.getNumber2() + 1);
+			res.setNumber1(tmp.getNumber1());
 		} else {
-			res.setNumber3(1);
-			res.setNumber2(1);
+			res.setNumber3(tmp.getNumber3());
+			res.setNumber2(tmp.getNumber2());
 			res.setNumber1(tmp.getNumber1() + 1 );
 		}
 		res.setPublishType("1");
