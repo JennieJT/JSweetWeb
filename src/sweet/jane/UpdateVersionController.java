@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.DataAndCount;
+import model.GridSearch;
 import model.OriginalVersionManage;
 import model.Pagination;
 import model.SelectedAttributes;
@@ -67,21 +69,40 @@ public class UpdateVersionController{
 @RequestMapping("paginationFetchTable")
 	public JsonResult getPaginationFetchTable(Pagination frontData)throws IOException{
 	DataAndCount result =new DataAndCount();
-	String  sql="SELECT uuid, v.number_1 as number1, v.number_2 as number2, v.number_3 as number3, u.user_name as userName, v.publish_date as publishDate, "
+	//change to an object with different sorted way in the future.
+	String sql;
+	String countQ;
+    String value=frontData.getValue();
+	if(frontData.getValue()==null||frontData.getValue().length()==0) {
+	sql="SELECT uuid, v.number_1 as number1, v.number_2 as number2, v.number_3 as number3, u.user_name as userName, v.publish_date as publishDate, "
 			+ "publish_type as publishType, publish_notes as publishNotes, update_list as updateList \n" + 
 			" FROM original_version_manage v JOIN org_user u on u.user_uuid=v.publisher "
 			+ "ORDER BY number_1 DESC ,number_2 DESC ,number_3 DESC"
-			;	
+			;
+	countQ="Select count(uuid) "
+			+ "FROM original_version_manage v JOIN org_user u on u.user_uuid=v.publisher";
+	}else {
+		sql="SELECT uuid, v.number_1 as number1, v.number_2 as number2, v.number_3 as number3, u.user_name as userName, v.publish_date as publishDate, "
+				+ "publish_type as publishType, publish_notes as publishNotes, update_list as updateList \n" + 
+				" FROM original_version_manage v JOIN org_user u on u.user_uuid=v.publisher "
+				+"WHERE publish_notes"+" LIKE '%"+value+"%' "
+				+ "ORDER BY number_1 DESC ,number_2 DESC ,number_3 DESC"
+				;
+		countQ="Select count(uuid) "
+				+ "FROM original_version_manage v JOIN org_user u on u.user_uuid=v.publisher "
+				+"WHERE publish_notes LIKE '%"+value+"%'"
+				;
+	}
+
 	Session session = sessionFactory.openSession();
 	Query<SelectedAttributes> exp=session.createNativeQuery(sql)
 			.setResultTransformer( Transformers.aliasToBean( SelectedAttributes.class ) );
 	exp.setFirstResult((frontData.getCurPage()-1)*frontData.getRowNum());
 	exp.setMaxResults(frontData.getRowNum());
 	List<SelectedAttributes> data=exp.list();
+
 	result.setData(data);
 	//total count
-	String countQ = "Select count(uuid) "
-			+ "FROM original_version_manage v JOIN org_user u on u.user_uuid=v.publisher";
 	Query countQuery = session.createNativeQuery(countQ);
 	BigInteger countResults = (BigInteger) countQuery.uniqueResult();
 	String count=countResults.toString();
@@ -91,6 +112,7 @@ r.setMessage("Hello");
 r.setCode(1);
 r.setSuccess(true);
 r.setData(result);
+//Map<String,Object> map=new HashMap<>();
 return r;
 	}
 
@@ -168,6 +190,8 @@ return r;
 @ResponseBody
 @RequestMapping("paramForm")
 public  JsonResult getParamForm(OriginalVersionManage result2) throws IOException {
+	UpdateVersionHelper helper=new UpdateVersionHelper();
+	helper.setSourcePath("/Users/jingtianwang/Documents/GitHub/JSweetWeb/WebContent/www/update/html5");
 	Session session = sessionFactory.openSession();
 	String publisher="c8f1ba6c7cf842409aba43206e9f7442";
 	//List<OriginalVersionManage> result2=session.createQuery(sql2).list();
@@ -181,6 +205,8 @@ public  JsonResult getParamForm(OriginalVersionManage result2) throws IOExceptio
 	SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
 	result2.setPublishDate(ft.format(new Date()));
 	result2.setPublisher(publisher);
+	String updateList=helper.getUpdateList(helper.getSourcePath());
+	
 	session.beginTransaction();
 	session.saveOrUpdate(result2);
 	session.getTransaction().commit();

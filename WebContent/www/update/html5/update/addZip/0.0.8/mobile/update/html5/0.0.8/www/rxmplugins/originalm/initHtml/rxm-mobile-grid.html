@@ -1,0 +1,118 @@
+<div class="rxm-grid-mobile-desktop rxm-s-grid rxm-s-grid-ellipsis" rxmurl="/resoft/xxx">
+    <div class="rxm-s-grid-titlebar rxm-h3">表格title</div>
+    <div class="rxm-s-grid-toolbar rxm-floated" rxmtype="sublayout" clsnm="rxm-s-grid-toolbar" rxmname="表格工具栏"> 
+        <ul class="rxm-cmd-btnbar" rxmtype="container" clsnm="rxm-cmd-btnbar">
+                <li class="rxm-cmd-btn rxm-default-delete" rxmtype="button" clsnm="rxm-cmd-btn" rxmname="删除">
+                    <button class="" rxmcmdid="" title="删除">
+                        <i class="fa  fa-trash-o">
+                        </i>
+                        <span>
+                            删除
+                        </span>
+                    </button>
+                </li>
+                <li class="rxm-cmd-btn rxm-default-all-select" rxmtype="button" clsnm="rxm-cmd-btn" rxmname="全选">
+                    <button class="" rxmcmdid="" title="全选">
+                        <i class="fa fa-check">
+                        </i>
+                        <span>
+                            全选
+                        </span>
+                    </button>
+                </li>
+                <li class="rxm-cmd-btn rxm-default-cancel" rxmtype="button" clsnm="rxm-cmd-btn" rxmname="取消">
+                    <button class="" rxmcmdid="" title="取消">
+                        <i class="fa  fa-close">
+                        </i>
+                        <span>
+                            取消
+                        </span>
+                    </button>
+                </li>
+            </ul>
+     </div>  
+    <div class="rxm-s-grid-topRefreshbar" style="display:none;height:0px;"><span>数据刷新成功</span></div> 
+    <div class="rxm-s-grid-content">
+        <div class="rxm-s-grid-table">
+            <div class="rxm-table-head">
+                <table onselectstart="return false;" class="rxm-table rxm-table-hover">
+                    <thead>
+                        <tr class="rxm-column—container" clsnm="rxm-column—container" rxmtype="sublayout" rxmname="表格列栏" >
+                            <th align="center" class="rxmindex noDrag" width="35px"></th>
+                            <th class="rxm-grid-column" clsnm="rxm-grid-column" rxmtype="display" rxmname="列1" fieldvalue="colum1" rxmmdview>列1</th> 
+                            <th class="rxm-grid-column" clsnm="rxm-grid-column" rxmtype="display" rxmname="列2" fieldvalue="colum2" rxmmdview>列2</th> 
+                            <th class="rxm-grid-column" clsnm="rxm-grid-column" rxmtype="display" rxmname="列3" fieldvalue="colum3" rxmmdview>列3</th> 
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="rxm-table-body" style="overflow: visible; position: relative;" >
+                  <table class="table rxm-table-hover">
+                      <tbody>
+                          
+                      </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+    <div class="rxm-s-grid-pagination" rxmtype="sublayout" clsnm="rxm-s-grid-pagination" rxmpaging="true" rxmpagesize="10">
+        <a title="第一页" class="GoToFirst disable"><i class="fa fa-step-backward"></i></a>
+        <a title="上一页" class="GoToPrev disable"><i class="fa fa-chevron-left"></i></a>
+        <span class="rxm-cur-page"><input type="text" value="1"></span>
+        <a title="下一页" class="GoToNext disable"><i class="fa fa-chevron-right"></i></a>
+        <a title="最后一页" class="GoToEnd disable"><i class="fa fa-step-forward"></i></a>
+        <a title="刷新" class="refresh"><i class="fa fa-refresh"></i></a>
+        <span class="rxm-data-count">共<i class="rxm-num">0</i>条</span>
+        <span class="rxm-page-size">
+            每页
+            <select>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>条
+        </span>
+    </div>
+    <div class="rxm-s-grid-bottomRefreshbar" style="display: none;">
+        <span class="rxm-grid-loading"></span>&nbsp;&nbsp;&nbsp;<span>数据加载中...</span>
+    </div>
+
+    <template>
+        {{each layout}}
+            {{if $value.icon == "icon"}}
+            <td class="rxm-td-icon">{{$value.icon}}</td>
+            {{else}}
+                {{if $index == 0}}
+                <td>
+                    {{if $value.name !== null}}
+                        <span class="rxm-col-name">{{$value.name}}&nbsp;:&nbsp;</span>
+                        <span class="rxm-col-value">{{rowData[$value.field]}}</span>
+                        {{else}}
+                        <span class="rxm-col-value">{{rowData[$value.field]}}</span>
+                    {{/if}}
+                {{else}}
+                    {{if $value.name !== null}}
+                        </br><span class="rxm-col-name">{{$value.name}}&nbsp;:&nbsp;</span>
+                        <span class="rxm-col-value">{{rowData[$value.field]}}</span>
+                        {{else}}
+                        </br><span class="rxm-col-value">{{rowData[$value.field]}}</span>
+                    </td>
+                    {{/if}}
+                {{/if}}
+            {{/if}}
+        {{/each}} 
+        {{if typeof multi != "undefined"}}
+            <td class="rxm-td-checkbox fix" style="display:none;">
+            {{if multi == true}}
+                <input class="rxm-multi-check" type="checkbox" name="s_gird_multi_{{gridId}}">
+            {{else}}   
+                <input class="rxm-multi-check" type="radio" name="s_gird_multi_{{gridId}}">
+            {{/if}}
+            </td>
+        {{/if}}
+        <td class="rxm-td-arrow"><img src="/www/rxm/utils/img/arrow-right.png"></td>
+    </template>
+</div>
+    

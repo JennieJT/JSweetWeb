@@ -378,13 +378,14 @@ tbody{
 .main>.statebar{
 	font-size:1rem;
 	line-height:2rem;
+	vertical-align:bottom;
 	bottom: 100%;
 	width:100%;
 	text-align:center;
 	font-family: cursive;
 }
 .table-div{
-	height:calc(100% - 140px);
+	height:calc(100% - 180px);
 	overflow:auto;
 }
 
@@ -394,7 +395,7 @@ top:calc(100% - 20px);
 bottom:100%;
 width:100%;
 }
-.row-num-span, .total-data-span, #total_rows{
+.row-num-span, .total-data-span, #total_rows, .toolbar-search{
 	float:right;
 }
 .first-page-a{
@@ -409,10 +410,13 @@ width:100%;
 
 .version-table{
 	width:100%;
+	vertical-align:middle;
+} 
+.version-title-table{
+	width:100%;
 	border-top:0.1px solid grey;
 	vertical-align:middle;
 }
-
 td{
 	width: calc(100%/ 6);
 	vertical-align:inherit;
@@ -485,4 +489,9 @@ a{
 }
 .cur-page-input{
 	width:30px;
+}
+.toolbar-search{
+	padding-top:10px;
+	margin-right:10px;
+	vertical-align: middle;
 }

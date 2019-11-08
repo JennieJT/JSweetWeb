@@ -1,0 +1,31 @@
+<div class="rxm-top-panel">
+    <a class="rxm-scroll-left"><i class="fa fa-chevron-left"></i></a>
+    <ul id = "{{rxmtab}}" class="rxm-nav rxm-nav-tabs" clsnm="rxm-tab" rxmType="container" rxmname="标签栏" >
+        <li id="{{rxmtabitem}}" class="rxm-tab-item rxmactive" clsnm="rxm-tab-item" rxmname="标签" rxmType="button">
+            <a href="javascript:void(0);" class="rxm-tab-item-a">
+                <span class='rxm-tab-name'>标签</span>
+            </a>
+        </li>
+        <li id="{{rxmtabitem2}}" class="rxm-tab-item rxminactive" clsnm="rxm-tab-item" rxmname="标签" rxmType="button">
+            <a href="javascript:void(0);" class="rxm-tab-item-a">
+                <span class='rxm-tab-name'>标签</span>
+            </a>
+        </li>
+        <template temtype="tab">
+            <li id={{@tabId}} class="rxm-tab-item" clsnm="rxm-tab-item" rxmType="button">
+                <a href="javascript:void(0);" class="rxm-tab-item-a"> 
+                    <span class='rxm-tab-name'>标签</span>
+                </a>
+            </li>
+        </template>
+        <template temtype="panel">
+            <div id={{@tabPanelId}} class="rxm-tab-panel" clsnm="rxm-row-panel" rxmType="sublayout" rxmname="标签内容" rxmtabpanel={{@tabId}} rxmrowh="auto" rxmrowminh="100%"></div>
+        </template>
+    </ul>
+    <a class="rxm-scroll-right"><i class="fa fa-chevron-right"></i></a>
+</div>
+<div rxmtabcontent = "{{rxmtab}}" class="rxm-content-panel rxm-content-top rxm-tab-content"  clsnm="rxm-tab-content" rxmtype="sublayout" rxmname="标签内容栏">
+    <div id="{{rxmtabpanel}}" class="rxm-tab-panel rxmactive" clsnm="rxm-row-panel" rxmType="sublayout" rxmname="标签内容" rxmtabpanel="{{rxmtabitem}}" rxmrowh="auto" rxmrowminh="100%"></div>
+    <div id="{{rxmtabpanel2}}" class="rxm-tab-panel" clsnm="rxm-row-panel" rxmType="sublayout" rxmname="标签内容" rxmtabpanel="{{rxmtabitem2}}" rxmrowh="auto" rxmrowminh="100%"></div>
+</div>
+

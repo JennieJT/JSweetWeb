@@ -1,0 +1,131 @@
+/* banner */
+.v_slide_back {
+	width: 520px;
+	height: 280px;
+	position: relative;
+	overflow: hidden;
+	margin-bottom: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	background-color: #B7B7B7;
+}
+
+.v_slide_btn {
+	display: none;
+	/*background-color:#0fccd8;*/
+	position: absolute;
+	width: 100%;
+	height: 40px;
+	z-index: 2;
+	margin: auto;
+	float: left;
+	clear: none;
+}
+
+.v_slide_btn a {
+	display: block;
+	line-height: 40px;
+	position: relative;
+	/*top: 120px;
+        width: 40px;
+        height: 40px;
+        background-color: #000;*/
+	opacity: 0.3;
+	filter: alpha(opacity = 30) color:rgb(255, 255, 255);
+	overflow: hidden;
+	z-index: 4;
+	/* background-color:#b6ff00; */
+}
+
+.prevBtn {
+	left: 5px;
+	float: left;
+	width: 0px;
+	height: 0px;
+	border-bottom: 20px solid transparent;
+	border-top: 20px solid transparent;
+	border-right: 40px solid #BBFF00;
+	font-size: 0px;
+	line-height: 0px;
+}
+
+.nextBtn {
+	right: 5px;
+	float: right;
+	width: 0px;
+	height: 0px;
+	border-top: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	border-left: 40px solid #BBFF00;
+	font-size: 0px;
+	line-height: 0px;
+}
+
+.slide_img_ul {
+	font-size: 0;
+	*word-spacing: -1px; /* IE6、7 */
+	letter-spacing: -3px;
+	position: relative;
+}
+
+.slide_img_ul li {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1; /* IE6、7 */
+	vertical-align: top;
+	letter-spacing: normal;
+	word-spacing: normal;
+	font-size: 12px;
+}
+
+.v_slide_back i {
+	width: 15px;
+	height: 23px;
+	cursor: pointer;
+	margin: 8px 0 0 12px;
+	display: block;
+}
+
+.v_slide_back .nextBtn i {
+	background-position: -200px -24px;
+}
+
+.v_slide_back .prevBtn i {
+	background-position: -200px 0px;
+}
+
+.slide_index_btn {
+	position: absolute;
+	left: 50%;
+	bottom: 15px;
+	height: 13px;
+	text-align: center;
+	font-size: 0;
+	border-radius: 10px;
+	background: rgba(255, 255, 255, 0.3);
+	filter: alpha(opacity : 30);
+}
+
+.slide_index_btn li {
+	border-radius: 10px;
+	margin: 2px;
+	display: inline-block;
+	display: -moz-inline-stack;
+	vertical-align: middle;
+	zoom: 1;
+}
+
+.slide_index_btn li a {
+	display: block;
+	padding-top: 9px;
+	width: 9px;
+	height: 0;
+	border-radius: 50%;
+	background: #B7B7B7;
+	overflow: hidden;
+}
+
+.slide_index_btn .selected a {
+	background: #F40;
+}

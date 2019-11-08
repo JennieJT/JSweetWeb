@@ -1,0 +1,21 @@
+<style id="{{mainpanelid}}_style" type="text/css"> 
+    #{{subpanelid}}.rxm-left-panel{ 
+        width:15rem;
+    } 
+    
+    #{{mainpanelid}}.rxm-content-panel.rxm-content-left,
+    #{{mainpanelid}}.rxm-content.rxm-content-left{ 
+        margin-left:15rem;
+    }
+    .rxm-mobile #{{subpanelid}}.rxm-left-panel{ 
+        display:none;
+    } 
+
+    .rxm-mobile #{{mainpanelid}}.rxm-content-panel.rxm-content-left,
+    .rxm-mobile #{{mainpanelid}}.rxm-content.rxm-content-left{ 
+        margin-left:0rem;
+    }
+
+</style>
+<div class="rxm-content-panel rxm-content-left" rxmname="右栏"></div>
+<div class="rxm-left-panel" id="{{subpanelid}}" clsnm="rxm-left-column" rxmType="sublayout" rxmname="左栏(定宽)"></div>

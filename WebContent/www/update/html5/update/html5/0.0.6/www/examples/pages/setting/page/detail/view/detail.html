@@ -1,0 +1,107 @@
+﻿
+    <!-- Tab panes -->
+    <div class="tab-content">
+    	<!-- 个人信息 -->
+        <div role="tabpanel" class="tab-pane active" id="pd_web_profile_edit_panel">
+            <div>
+                <form id="pd_web_userInfo_editor">
+                    <div class="affix-section">
+                        <div class="row">
+                            <div style="float:left">
+                                <div style="padding-top: 18px; padding-left: 33px; font-size: 24px"><i class="menu-icon fa fa-user"></i><span id="org_PersonName">基本信息</span></div>
+                                <!--<div style="padding-left:32px;font-size:13px;padding-bottom:14px"><span class="last" id="org_PersonDeptName"></span></div>-->
+                            </div>
+                            <div style="float:right;padding-top:23px;padding-right:33px">
+                                <button type="button" class="btn btn-default" id="pd_web_save_profile_btn"><i class="menu-icon fa fa-save"></i>&nbsp;保存</button>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-6 form-horizontal">
+                                <div class="form-group">
+                                    <label for="userCode" class="col-md-4 col-sm-2 control-label"><span class="requird"></span>员工编号:</label>
+                                    <div class="col-md-8 col-sm-10">
+                                        <input id="userCode" type="text" name="userCode" class="form-control" readonly>
+                                        <input id="userUuid" type="text" name="userUuid" style="display:none">
+                                        <input  type="text" name="opType" style="display:none">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 form-horizontal">
+                                <div class="form-group">
+                                    <label for="userName" class="col-md-4 col-sm-2 control-label"><span class="requird"></span>用户名称:</label>
+                                    <div class="col-md-8 col-sm-10">
+                                        <input id="userName" type="text" name="userName" class="form-control" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 form-horizontal">
+                                <div class="form-group">
+                                    <label for="" class="col-md-4 col-sm-2 control-label">性别:</label>
+                                    <div class="col-md-8 col-sm-10">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="sex" value="M"  >男
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="sex" value="F" >女
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-md-4 col-sm-2 control-label">生日:</label>
+                                    <div class="col-md-8 col-sm-10">
+                                        <div class="input-group">
+                                            <input id="birthday" type="text" name="birthday" class="form-control" tabindex="3" readonly>
+                                            <!--<span class="input-group-addon"><i class="fa fa-calendar"></i></span>-->
+                                            <span class="input-group-addon" style="cursor: pointer;" onclick="if($('#birthday').val().length>0)$('#birthday').val('').trigger('change')">
+                                                <span class="glyphicon glyphicon-remove"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 form-horizontal">
+                                <div class="form-group">
+                                    <label for="officePhone" class="col-md-4 col-sm-2 control-label">办公电话:</label>
+                                    <div class="col-md-8 col-sm-10">
+                                        <input id="officePhone" type="text" name="officePhone" class="form-control" tabindex="4">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 form-horizontal">
+                                <div class="form-group">
+                                    <label for="phone" class="col-md-4 col-sm-2 control-label">移动电话:</label>
+                                    <div class="col-md-8 col-sm-10">
+                                        <input id="phone" type="text" name="phone" class="form-control" tabindex="5">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 form-horizontal">
+                                <div class="form-group">
+                                    <label for="fax" class="col-md-4 col-sm-2 control-label">传真:</label>
+                                    <div class="col-md-8 col-sm-10">
+                                        <input type="text" class="form-control" id="fax" name="fax" tabindex="6">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 form-horizontal">
+                                <div class="form-group">
+                                    <label for="email" class="col-md-4 col-sm-2 control-label">邮箱:</label>
+                                    <div class="col-md-8 col-sm-10">
+                                        <input type="text" class="form-control" id="email" name="email" tabindex="7">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+      
+    </div>
+
+

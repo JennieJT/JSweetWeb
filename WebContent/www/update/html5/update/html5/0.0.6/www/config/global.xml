@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+  <rootUrl>http://192.168.0.110</rootUrl>
+  <h5Version>0.0.6</h5Version>
+  <errorPageUrl>citp://www/core/page/error/error.html</errorPageUrl>
+  <first>login</first>
+  <login>
+    <!-- <pageUrl>citp://www/pages/login.html</pageUrl> -->
+     <pageUrl>http://192.168.0.110/www/pages/login.html</pageUrl>
+    <!-- <pageUrl>http://192.168.0.110/www/examples/pages/dkTest/form/selectOrg/view/selectOrg.html</pageUrl> -->
+   
+<!--     <pageUrl>http://192.168.0.107/www/examples/pages/pdfdemo/view/pdfdemo.html</pageUrl> -->
+    <pageArgs><![CDATA[{"title":"登录页","hiddenBackBtn":true}]]></pageArgs>
+  </login>
+  <home>
+    <homeType>1</homeType>
+    <!-- 0:单页面 1:tabbar 2:侧滑 -->
+    <homeTabBg><![CDATA[#4D4D4D]]></homeTabBg>
+    <homeArgs>
+      <![CDATA[
+            	[]
+            ]]>
+    </homeArgs>
+  </home>
+
+  <httpTimeOut>
+    <connectTimeout>30</connectTimeout>
+    <writeTimeout>30</writeTimeout>
+    <readTimeout>30</readTimeout>
+  </httpTimeOut>
+</xml>

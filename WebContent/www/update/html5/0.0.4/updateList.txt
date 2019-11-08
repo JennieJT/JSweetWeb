@@ -1,0 +1,1 @@
+updateFile：/rxm/core/base/rxmPageAuth.json;updateFile：/config/global.xml;

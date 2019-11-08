@@ -1,0 +1,226 @@
+/* ================================== search.html 样式 ======================================================== */
+
+.selectedpersons.s_grid_ellipsis .s_grid_table table td{
+	height: 45px;
+}
+.selectedpersons .s_grid_content .s_grid_table .table-body table tr{
+	height: 45px;
+}
+.pre-insert-icon,.next-insert-icon{
+	text-decoration:none;
+	margin-right:15px
+}
+#mask{
+	width: 100%;
+	height: 0px;
+	background-color: #ccc;
+	position: absolute;
+    top: 41px;
+    z-index: 9;
+    display:none;
+    opacity: .4;
+}
+.orm-iphone #mask{
+	top: 61px;
+}
+.del-selrow-icon{
+text-decoration:none;
+margin-right:10px
+}
+.org-title-bar{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	display: inline-flex;
+}
+	.orm-iphone .org-title-bar{
+	height: 60px;
+	padding-top: 20px;
+}
+.orm-grid-selected-tr{
+	background-color: #EAEAEA !important;
+}
+
+.back{
+	width: 40px;
+	height: 40px;
+}
+#close{
+	font-size: 20px;
+	line-height: 40px;
+	margin-left: 10px;
+}
+.people > span{
+	margin: 0 2px;
+}
+.people .person{
+	font-size: 14px;
+}
+.people .arrow{
+	font-size: 15px;
+}
+.people{
+	width: 70px;
+	margin: 0 auto;
+	text-align: center;
+}
+.search{
+	font-size: 18px;
+	width: 40px;
+	line-height: 40px;
+	padding-left: 10px;
+}
+.orm-iphone .selectrole{
+	top: 60px;
+}
+.selectrole{
+	display:  none;
+	position: absolute;
+	top: 40px;
+	z-index: 10;
+}
+.selectrole ul{
+	margin: 0 auto;
+	width: 140px;
+	list-style-type: none;
+	font-size: 14px;
+	background-color: #ffffff;
+}
+.selectrole ul li{
+	border-bottom: 1px solid #ddd;
+	height: 35px;
+	line-height: 35px;
+	padding-left: 30px;
+}
+.selectrole ul li:last-child{
+	border-bottom: 0px solid #ddd;
+}
+.selectrole ul li>span:first-child{
+	margin-left: 5px;
+	margin-right: 10px;
+}
+.selectcontent{
+	width: 60%;
+	text-align: center;
+}
+.code{
+	width: 20%;
+	text-align: center;
+}
+.content-bottom{
+	width:100%;
+	font-size:14px;
+	display: inline-flex;
+}
+.content-right{
+	width:100%;
+	position: relative;
+}
+.ormorg-footer{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	z-index: 10;
+}
+.footer-bottom{
+	bottom: 0px;
+	position: absolute;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	background-color: #505050;
+	display: inline-flex;
+	text-align: center;	
+}
+.footer-top{
+	width: 100%;
+	display:  none;
+	margin: 0 auto;
+	font-size: 14px;
+	position: absolute;
+	bottom: 40px;
+	z-index: 10;
+	background: #fff;
+}
+.selected{
+	height: 35px;
+	line-height: 35px;
+	background-color: #cfcfcf;
+	padding: 0px 20px;
+}
+.selectedpersons{
+	height: 200px;
+}
+.selectedpersons .s_grid_table .table-body{
+	height: 185px !important;
+}
+.selectedpersons .s_grid_content {
+	position: relative;
+	z-index: 0;
+	margin: 0px; 
+	background-color: #fff;
+}
+.description{
+	width:100px;
+	float:left;
+}
+.delete{
+	float:right;
+}
+.unselected{
+	width: 260px;
+	margin: 0 auto;
+	color: white;
+}
+.save{
+	line-height: 40px;
+	font-size: 15px;
+}
+#submit{
+	width: 60px;
+	border-width: 0px
+}
+.selectcontent .treetop{
+	margin-left: 5px;
+	color: blue;
+}
+.selectcontent  .treetop:last-child{
+	color: #333333;
+}
+.selected-img{
+	bottom: 10px;
+	position: absolute;
+	width: 60px;
+	left: 10px;
+	z-index: 20;
+}
+#keyword{
+	height: 30px;
+	margin-top: 5px;
+	border: 0px solid #ccc;
+}
+.msgTr{
+	height: 50px;
+	line-height: 50px;
+	vertical-align: middle !important;
+}
+
+.msgTr td{
+	vertical-align: middle !important;
+}
+
+.rxm-mobile .rxm-grid-mobile .rxm-nodata-tip,.rxm-desktop .rxm-grid-mobile .rxm-nodata-tip,.rxm-mobile .rxm-grid-mobile-desktop .rxm-nodata-tip{
+	padding: 0px 20px !important;
+	height: 50px;
+	line-height: 50px !important;
+}
+.content-right-bottom{
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	color: gray;
+	font-size: 12px;
+	bottom: 30px;
+	z-index: 1;
+} 

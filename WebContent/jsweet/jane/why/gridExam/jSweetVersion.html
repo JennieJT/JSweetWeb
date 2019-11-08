@@ -38,73 +38,95 @@
                     <span class=toolbar-span>
                         <a class=toolbar-a> download </a>
                     </span>
+                    <span class="toolbar-search">
+                            <i id="jsweet_sorted_search" class="fas fa-search"></i>
+                    </span>
+                   
+                    <span class="toolbar-search">
+                        <input id="jsweet_sorted_search_content" type="text" width="30px"></input>
+                    </span>
+                    <span class="toolbar-search">
+                        <select class="jsweet-sorted-search-sort">
+                            <!-- <option class="jsweet-sorted-search-sort" value="versionNumber">version number</option>-->
+                            <option class="jsweet-option-search-sort"  value="publisher">publisher</option> 
+                            <!-- <option class="jsweet-option-search-sort" value="publishDate">publish date</option>
+                            <option class="jsweet-option-search-sort" value="publishType">publish type</option> -->
+                            <option class="jsweet-option-search-sort"  value="publish_notes">publish notes</option>
+                            <option class="jsweet-option-search-sort" value="publish_list">update list</option>
+                        </select>
+                    </span>
                 </div>
+                <table class=version-title-table>
+                    <tbody class=toolbar-tbody>
+                        <tr id='head'>
+                            <th class="table-th" width="15%">
+                                <input type="checkbox" name="version-number" value="all">version number
+                            </th>
+                            <th class="table-th" width="15%">publisher</th>
+                            <th class="table-th" width="15%">publish date</th>
+                            <th class="table-th" width="15%">publish type</th>
+                            <th class="table-th" width="15%">publish notes</th>
+                            <th class="table-th" width="15%">update list</th>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- table with scroll bar -->
                 <div class=table-div>
                     <table class=version-table>
                         <tbody class=toolbar-tbody id=jsweet_table>
-                            <tr id='head'>
-                                <th class="table-th" width="15%">
-                                    <input type="checkbox" name="version-number" value="all">version number
-                                </th>
-                                <th class="table-th" width="15%">publisher</th>
-                                <th class="table-th" width="15%">publish date</th>
-                                <th class="table-th" width="15%">publish type</th>
-                                <th class="table-th" width="15%">publish notes</th>
-                                <th class="table-th" width="15%">update list</th>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class=grid-pagination>
-                        <a title="first page" class=first-page-a>
-                                <i class="fas fa-angle-double-left"></i>
-                        </a>
-                        <a class=prev-page-a>
-                                <i class="fas fa-angle-left"></i>
-                        </a>
-                        <span class=cur-page-span>
-                            <input class="cur-page-input" type="text" value="1">
-                        </span>
-                        <a class=next-page-a>
-                                <i class="fas fa-angle-right"></i>
-                        </a>
-                        <a class=last-page-a>
-                                <i class="fas fa-angle-double-right"></i>
-                        </a>
-                        <a class=refresh-a>
-                            <i class="fas fa-redo-alt"></i>
-                        </a>
-                        <span class=row-num-span>
-                            <select>
-                                <option value="5">5</option>
-                                <option value="10">10</option>
-                                <option value="20">20</option>
-                                <option value="50">50</option>
-                            </select>
-                            rows per page total:
-                            <span id="total_rows"></span>
-                        </span>
-                    </div>
+                    <a title="first page" class=first-page-a>
+                        <i class="fas fa-angle-double-left"></i>
+                    </a>
+                    <a class=prev-page-a>
+                        <i class="fas fa-angle-left"></i>
+                    </a>
+                    <span class=cur-page-span>
+                        <input class="cur-page-input" type="text" value="1">
+                    </span>
+                    <a class=next-page-a>
+                        <i class="fas fa-angle-right"></i>
+                    </a>
+                    <a class=last-page-a>
+                        <i class="fas fa-angle-double-right"></i>
+                    </a>
+                    <a class=refresh-a>
+                        <i class="fas fa-redo-alt"></i>
+                    </a>
+                    <span class=row-num-span>
+                        <select>
+                            <option value="5">5</option>
+                            <option value="10" selected>10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                        </select>
+                        rows per page total:
+                        <span id="total_rows"></span>
+                    </span>
+                </div>
             </div>
-                <div class=statebar> <i class="fas fa-heart"></i> jsweet project <i class="fas fa-heart"></i></div>
+            <div class=statebar> <i class="fas fa-heart"></i> jsweet project <i class="fas fa-heart"></i></div>
         </div>
-       
-        
+
+
     </div>
     </div>
     <template id='each_row'>
-            <tr id="table_line">
-                <td>
-                    <input class=official-link type="checkbox" value={{uuid}}>
-                    <a class=update-a id={{uuid}}>{{number1}}.{{number2}}.{{number3}}</a>
-                </td>
-                <td>{{userName}}</td>
-                <td>{{publishDate}}</td>
-                <td>{{publishType}}</td>
-                <td>{{publishNotes}}</td>
-                <td>{{updateList}}</td>
-            </tr>
-        </template>
+        <tr class="table-line">
+            <td>
+                <input class=official-link type="checkbox" value={{uuid}}>
+                <a class=update-a id={{uuid}}>{{number1}}.{{number2}}.{{number3}}</a>
+            </td>
+            <td>{{userName}}</td>
+            <td>{{publishDate}}</td>
+            <td>{{publishType}}</td>
+            <td>{{publishNotes}}</td>
+            <td>{{updateList}}</td>
+        </tr>
+    </template>
 
 </body>
 

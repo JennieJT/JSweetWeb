@@ -1,0 +1,1 @@
+updateFile：/config/global.xml;

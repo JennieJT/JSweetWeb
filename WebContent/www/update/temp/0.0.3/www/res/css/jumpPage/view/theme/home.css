@@ -1,0 +1,91 @@
+
+/*global*/
+body{ margin:0; padding:0; font-size:13px; color:#333333; font-family:"Microsoft yahei";}
+h1,h2,h3,h4,h5,p,ul,ol,li{ margin:0; padding:0;}
+div {
+    padding:0;
+    margin:0;
+    border:0
+}
+
+.gray { 
+    -webkit-filter: grayscale(1);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(1);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(1);
+    -ms-filter: grayscale(100%);
+    filter: grayscale(1);
+    filter: gray;
+    
+}
+.center{
+    margin:0 auto;
+}
+/**/
+
+iframe.orm-home{
+    min-width:100%;
+    width:100px;
+    height:100%;
+}
+
+div.scroll_frame {
+    overflow: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling:touch;
+    width: 100%;
+    height: 100%;
+   
+}
+
+div.orm-frame{
+   display:block;
+   width:100%;
+   border:0;
+   visibility:visible;
+   position:absolute;
+   top:0;
+   left:0
+}
+div.orm-frame-hidden{
+    /*display:none;*/
+    visibility:hidden;
+}
+footer {
+    position:absolute;
+    bottom:0px;
+    width:100%;
+    padding-top:4px;
+    border-top:1px solid #dddddd;
+    background-color:#f2f2f2;
+}
+footer .footer-item {
+        height:48px;
+        display:block;
+        float:left;
+        position:relative;
+        margin:1px 0px 0px 0px;
+        border-radius:2px;
+        /*background-color:gainsboro*/
+
+    }
+ footer .footer-item:hover,footer .footer-item:hover .tab-text{
+        /*background-color:aquamarine*/
+         text-decoration:none;
+         color:darkblue;
+    }
+ div.tab-text{
+     font-family:'Microsoft YaHei' ;
+     font-size:9px;
+     line-height:14px;
+     text-align:center;
+     display:block;
+     text-decoration:none;
+     color:#313131
+ }
+ a.item-one {
+    float: left;
+    overflow: hidden;
+    text-align:center;
+}

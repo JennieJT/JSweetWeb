@@ -1,0 +1,62 @@
+<template id="rxm_dialog_tmplt">
+    <div class="rxm-dlg-frame {{data.posCls}}" id="{{data.id}}">
+        <div class="rxm-dlg-title  rxm-title"><i class="icon-newspaper"></i><span>{{data.title}}</span> </div>
+        <div class="rxm-dlg-head"></div>
+        <div class="rxm-dlg-content"></div>
+        <div class="rxm-dlg-foot">
+            <div class="rxm-cmd-btnbar">
+                <button tabindex="1" rxmcmdid="rxm_dlg_cmd_ok">{{data.okBtnText}}</button><button rxmcmdid="rxm_dlg_cmd_cancel">{{data.cancelBtnText}}</button>
+            </div>
+        </div>
+    </div>
+</template>
+<template id="rxm_alert_tmplt">
+    <div class="rxm-alert-frame {{data.posCls}}" id="{{data.id}}">
+        <div class="rxm-alert-title rxm-title"><i class="icon-newspaper"></i><span class="rxm-title-content">{{data.title}}</span>
+        </div>
+        <div class="rxm-alert-head"></div>
+        <div class="rxm-alert-content">{{data.content}}</div>
+        <div class="rxm-alert-foot">
+            <div class="rxm-cmd-btnbar">
+                <button tabindex="1" rxmcmdid="rxm_dlg_cmd_ok">{{data.okBtnText}}</button>
+            </div>
+        </div>
+    </div>
+</template>
+<template id="rxm_confirm_tmplt">
+    <div id="{{data.id}}" class="rxm-confirm-frame {{data.posCls}}">
+        <div class="rxm-confirm-title rxm-title"><i class="icon-newspaper"></i><span>{{data.title}}</span> </div>
+        <div class="rxm-confirm-head"></div>
+        <div class="rxm-confirm-content">
+            <p>{{data.content}}</p>
+        </div>
+        <div class="rxm-confirm-foot ">
+            <div class="rxm-cmd-btnbar">
+                <button tabindex="1" rxmcmdid="rxm_dlg_cmd_ok">{{data.okBtnText}}</button><button rxmcmdid="rxm_dlg_cmd_cancel">{{data.cancelBtnText}}</button></div>
+        </div>
+    </div>
+</template>
+<template id="rxm_toast_tmplt">
+    <div id="{{data.id}}" class="rxm-toast-frame">
+        <div class="rxm-toast-title"><span>对话框</span> </div>
+    </div>
+</template>
+<template id="rxm_loading_tmplt">
+    <div class="rxm-loading-frame" id="{{data.id}}">
+        <div class="rxm-loadEffect-1a">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        {{if data.text}}
+        <div class="rxm-ldng-title"><span>{{data.text}}</span> </div>
+        {{else}}
+        <div class="rxm-ldng-title"><span>正在加载……</span> </div>
+        {{/if}}
+    </div>
+</template>

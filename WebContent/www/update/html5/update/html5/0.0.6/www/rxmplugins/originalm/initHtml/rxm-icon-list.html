@@ -1,0 +1,38 @@
+<div class="rxm-icon-list-container" rxmlisttype="iconlist" rxmurl="./www/examples/iconList/icondata.json" rxmtemplate="" rxmissingle="true" rxmisexpand="true" rxmisseperateline="true">   
+    <template type="iconlist" id="">
+        {{each data}}
+           <div class="rxm-icon-list-row">
+              <h3 class="rxm-icon-list-header"><i class="fa  fa-list-alt rxm-widget-title-icon"></i>{{$value.categoryTitle}}</h3>
+              <ul class="rxm-icon-list-content">
+                 {{each $value.listData}}
+                 <li data-href="{{$value.href}}" id="{{$value.id}}" class="rxm-icon-list-item rxm-icon-list-item-hoverDefault">
+                    <i class="{{$value.iconClass}}" style="font-size: 20px"></i>
+                    <span class="anticon-class">{{$value.title}}</span>
+                 </li>   
+                 {{/each}}
+              </ul>
+           </div>
+        {{/each}}
+     </template>
+     <template type="desktop" id="rxmdk_plugin_panel_template-desktop">
+        <div class="rxm-icon-list-header-container">
+            <div class="rxm-icon-list-header rxm-icon-list-col40">组件名称</div>
+            <div class="rxm-icon-list-header rxm-icon-list-col40">组件类型</div>
+        </div>
+        {{each data}}
+            <div class="rxm-icon-list-desktop">
+                {{each $value.listData}}
+                <div title="{{$value.title}}" id="{{$value.id}}" class="rxm-icon-list-item  rxm-icon-list-item-hoverDefault">
+                    <div class="rxm-icon-list-desktop-leftColumnSection">
+                        <span class="rxm-icon-list-desktop-icon {{$value.iconClass}}" style="font-size: 20px"></span>
+                        <span class="rxm-icon-list-desktop-title" >{{$value.title}}</span>
+                    </div>
+                    <div class="rxm-icon-list-desktop-rightColumnSection">
+                        <span class="rxm-icon-list-desktop-category">{{$value.categoryTitle}}</span>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        {{/each}} 
+    </template>
+</div>

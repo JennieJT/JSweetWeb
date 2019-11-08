@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="zh-cn" ormtype="10">
+	<head>
+		<base href="../../../../../../">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta content="telephone=no" name="format-detection">
+		<link rxmextend rel="shortcut icon" type="image/x-icon" href="./www/res/img/favicon.png">
+		<link rxmextend rel="stylesheet" href="./www/res/css/ormwidget.css">
+		<title>
+			Original-M
+		</title>
+	</head>
+	<body class="rxm-body rxm-mobile rxm-iphone" clsnm="rxm-body" rxmtype="layout" id="rxm_body" style="cursor: default;">
+		<style id="panel001_style" type="text/css">
+			.rxm-mobile #panel001.rxm-content-panel,.rxm-desktop #panel001.rxm-content-panel{
+			width:auto; height:100%; }
+		</style>
+		<script rxmextend="" type="text/javascript" src="./www/rxm/global/cssOriginal.js">
+		</script>
+		<div class="rxm-content-panel" id="panel001" rxmtype="layout" clsnm="rxm-content-panel">
+			<div class="rxm-top-panel" id="tab002_content">
+				<a class="rxm-scroll-left" style="display: none;">
+					<i class="icon-arrow-left">
+					</i>
+				</a>
+				<ul id="tab002" class="rxm-nav rxm-nav-tabs rxmdk-layout-hover" clsnm="rxm-tab" rxmtype="container" rxmname="标签栏">
+					<li id="tab002_def1" class="rxm-tab-item rxmdk-layout-hover rxmactive rxmdk-plugin-focus" clsnm="rxm-tab-item" rxmname="form标签" rxmtype="button">
+						<a href="javascript:void(0);" class="rxm-tab-item-a">
+							<span class="rxm-tab-name">form标签</span>
+						</a>
+					</li>
+					<li id="tab002_def2" class="rxm-tab-item rxminactive" clsnm="rxm-tab-item" rxmname="grid标签" rxmtype="button">
+						<a href="javascript:void(0);" class="rxm-tab-item-a">
+							<span class="rxm-tab-name">grid标签</span>
+						</a>
+					</li>
+					<template temtype="tab" id="template-tab-tab002">
+						<li id="{{@tabId}}" class="rxm-tab-item" clsnm="rxm-tab-item" rxmtype="button">
+							<a href="javascript:void(0);" class="rxm-tab-item-a">
+								<span class="rxm-tab-name">
+									标签
+								</span>
+							</a>
+						</li>
+					</template>
+					<template temtype="panel" id="template-panel-tab002">
+						<div id="{{@tabPanelId}}" class="rxm-tab-panel" clsnm="rxm-row-panel" rxmtype="sublayout" rxmname="标签内容" rxmtabpanel="{{@tabId}}" rxmrowh="auto" rxmrowminh="100%">
+						</div>
+					</template>
+				</ul>
+				<a class="rxm-scroll-right" style="display: none;">
+					<i class="icon-arrow-right">
+					</i>
+				</a>
+			</div>
+			<div rxmtabcontent="tab002" class="rxm-content-panel rxm-content-top rxm-tab-content" clsnm="rxm-tab-content" rxmtype="sublayout" rxmname="标签栏内容栏" id="content003">
+				<div id="tab002_def1_panel" class="rxm-tab-panel rxmactive" clsnm="rxm-row-panel" rxmtype="sublayout" rxmname="form标签内容" rxmtabpanel="tab002_def1" rxmrowh="auto" rxmrowminh="100%">
+					<div class="rxm-row-panel" clsnm="rxm-row-panel" rxmrowh="auto" rxmrowminh="2.1rem" rxmtype="layout" id="panel003">
+						<div class="rxm-title-bar" clsnm="rxm-title-bar" rxmtype="container" id="bar009">
+							<i class="fa  fa-list-alt rxm-title-icon">
+							</i>
+							<span class="rxm-title-name">
+								form演示页面
+							</span>
+						</div>
+					</div>
+					<div class="rxm-row-panel" clsnm="rxm-row-panel" rxmrowh="auto" rxmrowminh="2.1rem" rxmtype="layout" id="panel004">
+						<form id="form011" name="" class="rxm-form-horizontal" rxmtype="container" clsnm="rxm-form">
+							<div class="rxm-form-group rxm-col-xs-12 rxm-col-sm-6 rxm-col-md-4 rxm-col-lg-3" rxmtype="input" id="text013" clsnm="rxm-input-text">
+								<label class="rxm-control-label rxm-form-padding-r rxm-col-xs-3 rxm-col-sm-3 rxm-col-md-3 rxm-col-lg-3" for="">
+									名称
+								</label>
+								<div class="rxm-form-padding-l rxm-col-xs-8 rxm-col-sm-8 rxm-col-md-8 rxm-col-lg-8">
+									<input type="text" class="rxm-form-control" name="">
+								</div>
+							</div>
+							<div class="rxm-form-group rxm-col-xs-12 rxm-col-sm-6 rxm-col-md-4 rxm-col-lg-3" rxmurl="/resoft/orm/uptest" rxmtype="input" id="fileUploader012" clsnm="rxm-fileUploader">
+								<label class="rxm-control-label rxm-form-padding-r rxm-col-xs-3 rxm-col-sm-3 rxm-col-md-3 rxm-col-lg-3" for="fileName">
+									文件名称
+								</label>
+								<div class="rxm-form-padding-l rxm-col-xs-8 rxm-col-sm-8 rxm-col-md-8 rxm-col-lg-8">
+									<input class="rxm-form-control rxm-file-uploader" name="" readonly="">
+									<div class="rxm-upload-clearAllValue">
+										<!-- <i class="fa fa-trash-o" id="delBtn"> </i>           <i class="fa fa-cloud-upload" id="uploadBtn" style="display: none;"></i>  -->
+										<i class="fa fa-trash-o">
+										</i>
+										<i class="fa fa-cloud-upload" style="display: none;">
+										</i>
+									</div>
+									<div class="rxm-upload-progress">
+										<div class="rxm-upload-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 3em;">
+											0%
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="rxm-form-group rxm-col-xs-12 rxm-col-sm-6 rxm-col-md-4 rxm-col-lg-3" rxmtype="input" id="email016" clsnm="rxm-input-email">
+								<label class="rxm-control-label rxm-form-padding-r rxm-col-xs-3 rxm-col-sm-3 rxm-col-md-3 rxm-col-lg-3" for="">
+									邮箱
+								</label>
+								<div class="rxm-form-padding-l rxm-col-xs-8 rxm-col-sm-8 rxm-col-md-8 rxm-col-lg-8">
+									<input type="email" class="rxm-form-control" name="">
+								</div>
+							</div>
+							<div class="rxm-form-group rxm-col-xs-12 rxm-col-sm-6 rxm-col-md-4 rxm-col-lg-3" rxmtype="input" id="url017" clsnm="rxm-input-url">
+								<label class="rxm-control-label rxm-form-padding-r rxm-col-xs-3 rxm-col-sm-3 rxm-col-md-3 rxm-col-lg-3" for="">
+									网址
+								</label>
+								<div class="rxm-form-padding-l rxm-col-xs-8 rxm-col-sm-8 rxm-col-md-8 rxm-col-lg-8">
+									<input type="url" class="rxm-form-control" name="">
+								</div>
+							</div>
+							<div class="rxm-form-group rxm-col-xs-12 rxm-col-sm-6 rxm-col-md-4 rxm-col-lg-3" rxmtype="input" id="tel018" clsnm="rxm-input-tel">
+								<label class="rxm-control-label rxm-form-padding-r rxm-col-xs-3 rxm-col-sm-3 rxm-col-md-3 rxm-col-lg-3" for="">
+									电话号码
+								</label>
+								<div class="rxm-form-padding-l rxm-col-xs-8 rxm-col-sm-8 rxm-col-md-8 rxm-col-lg-8">
+									<input type="tel" class="rxm-form-control" name="">
+								</div>
+							</div>
+							<div class="rxm-form-group rxm-col-xs-12 rxm-col-sm-6 rxm-col-md-4 rxm-col-lg-3" rxmtype="input" id="number019" clsnm="rxm-input-number">
+								<label class="rxm-control-label rxm-form-padding-r rxm-col-xs-3 rxm-col-sm-3 rxm-col-md-3 rxm-col-lg-3" for="">
+									数字
+								</label>
+								<div class="rxm-form-padding-l rxm-col-xs-8 rxm-col-sm-8 rxm-col-md-8 rxm-col-lg-8">
+									<input type="number" class="rxm-form-control" name="" min="0" max="10" step="1" value="0">
+								</div>
+							</div>
+							<div class="rxm-form-group rxm-col-xs-12 rxm-col-sm-6 rxm-col-md-4 rxm-col-lg-3" rxmtype="input" id="range020" clsnm="rxm-input-range">
+								<label class="rxm-control-label rxm-form-padding-r rxm-col-xs-3 rxm-col-sm-3 rxm-col-md-3 rxm-col-lg-3" for="">
+									范围数字
+								</label>
+								<div class="rxm-form-padding-l rxm-col-xs-8 rxm-col-sm-8 rxm-col-md-8 rxm-col-lg-8">
+									<input type="range" class="rxm-form-control" name="" min="0" max="10" step="1" value="0">
+								</div>
+							</div>
+							<div class="rxm-form-group rxm-col-xs-12 rxm-col-sm-6 rxm-col-md-4 rxm-col-lg-3" rxmtype="input" id="color021" clsnm="rxm-input-color">
+								<label class="rxm-control-label rxm-form-padding-r rxm-col-xs-3 rxm-col-sm-3 rxm-col-md-3 rxm-col-lg-3" for="">
+									颜色
+								</label>
+								<div class="rxm-form-padding-l rxm-col-xs-8 rxm-col-sm-8 rxm-col-md-8 rxm-col-lg-8">
+									<input type="color" class="rxm-form-control" name="">
+								</div>
+							</div>
+							<div class="rxm-form-group rxm-col-xs-12 rxm-col-sm-6 rxm-col-md-4 rxm-col-lg-3" rxmtype="input" id="select022" clsnm="rxm-input-select">
+								<label class="rxm-control-label rxm-form-padding-r rxm-col-xs-3 rxm-col-sm-3 rxm-col-md-3 rxm-col-lg-3" for="">
+									下拉选择
+								</label>
+								<div class="rxm-form-padding-l rxm-col-xs-8 rxm-col-sm-8 rxm-col-md-8 rxm-col-lg-8">
+									<select name="" class="rxm-form-control rxm-select" rxminitdata="[{&quot;value&quot;:&quot;1&quot;,&quot;text&quot;:&quot;选择1&quot;,&quot;selected&quot;:&quot;selected&quot;},{&quot;value&quot;:&quot;2&quot;,&quot;text&quot;:&quot;选择&quot;},{&quot;value&quot;:&quot;3&quot;,&quot;text&quot;:&quot;选择3&quot;}]" rxminitload="{&quot;url&quot;:&quot;&quot;}" rxmcascadeselect="{&quot;rxmChildSelectId&quot;:&quot;&quot;,&quot;initLoad&quot;:&quot;&quot;}">
+									</select>
+								</div>
+							</div>
+							<div class="rxm-form-group rxm-col-xs-12 rxm-col-sm-6 rxm-col-md-4 rxm-col-lg-3" rxmtype="input" id="date023" clsnm="rxm-input-date">
+								<label class="rxm-control-label rxm-form-padding-r rxm-col-xs-3 rxm-col-sm-3 rxm-col-md-3 rxm-col-lg-3" for="">
+									日期
+								</label>
+								<div class="rxm-form-padding-l rxm-col-xs-8 rxm-col-sm-8 rxm-col-md-8 rxm-col-lg-8">
+									<input type="date" class="rxm-form-control rxm-date" name="">
+								</div>
+							</div>
+							<div class="rxm-form-group rxm-col-xs-12 rxm-col-sm-6 rxm-col-md-4 rxm-col-lg-3" rxmtype="input" id="textarea024" clsnm="rxm-input-textarea">
+								<label class="rxm-control-label rxm-form-padding-r rxm-col-xs-3 rxm-col-sm-3 rxm-col-md-3 rxm-col-lg-3" for="">
+									大文本
+								</label>
+								<div class="rxm-form-padding-l rxm-col-xs-8 rxm-col-sm-8 rxm-col-md-8 rxm-col-lg-8">
+									<textarea class="rxm-form-control" name="" rows="" cols="">									</textarea>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="rxm-row-panel" clsnm="rxm-row-panel" rxmrowh="auto" rxmrowminh="2.1rem" style="text-align:center" rxmtype="layout" id="panel005">
+						<ul class="rxm-cmd-btnbar" rxmtype="container" id="btnbar006" clsnm="rxm-cmd-btnbar">
+							<li class="rxm-cmd-btn" rxmtype="button" clsnm="rxm-cmd-btn" id="btnbar006btn">
+								<button class="" rxmcmdid="" title="重置">
+									<i class="fa fa-refresh">
+									</i>
+									<span>
+										重置
+									</span>
+								</button>
+							</li>
+							<li class="rxm-cmd-btn" rxmtype="button" id="btn007" clsnm="rxm-cmd-btn">
+								<button class="" rxmcmdid="" title="保存">
+									<i class="fa fa-save">
+									</i>
+									<span>
+										保存
+									</span>
+								</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div id="tab002_def2_panel" class="rxm-tab-panel" clsnm="rxm-row-panel" rxmtype="sublayout" rxmname="grid标签内容" rxmtabpanel="tab002_def2" rxmrowh="auto" rxmrowminh="100%"><div class="rxm-grid-mobile-desktop rxm-s-grid rxm-s-grid-ellipsis" rxmurl="/resoft/origianl/msg/queryMsgMForPageService" rxmtemplate="template-grid024" rxmtype="display" id="grid024" clsnm="rxm-mobile-grid" rxmindex="true" rxmparam="{'pageType':'inbox'}">    <div class="rxm-s-grid-titlebar rxm-h3">表格title</div>    <div class="rxm-s-grid-toolbar rxm-floated" ormgrid="grid001" rxmtype="sublayout" clsnm="rxm-s-grid-toolbar" rxmname="表格工具栏" id="toolbar025">         <ul class="rxm-cmd-btnbar" rxmtype="container" id="btnbar001" clsnm="rxm-cmd-btnbar">                <li class="rxm-cmd-btn rxm-default-delete" rxmtype="button" id="btn001" clsnm="rxm-cmd-btn" rxmname="删除">                    <button class="" rxmcmdid="" title="删除">                        <i class="fa  fa-trash-o">                        </i>                        <span>                            删除                        </span>                    </button>                </li>                <li class="rxm-cmd-btn rxm-default-all-select" rxmtype="button" id="btn002" clsnm="rxm-cmd-btn" rxmname="全选">                    <button class="" rxmcmdid="" title="全选">                        <i class="fa  fa-trash-o">                        </i>                        <span>                            全选                        </span>                    </button>                </li>                <li class="rxm-cmd-btn rxm-default-cancel" rxmtype="button" id="btn003" clsnm="rxm-cmd-btn" rxmname="取消">                    <button class="" rxmcmdid="" title="取消">                        <i class="fa  fa-trash-o">                        </i>                        <span>                            取消                        </span>                    </button>                </li>            </ul>     </div>      <div class="rxm-s-grid-topRefreshbar" style="display:none;height:0px;"><span>数据刷新成功</span></div>     <div class="rxm-s-grid-content">        <div class="rxm-s-grid-table">            <div class="rxm-table-head">                <table onselectstart="return false;" class="rxm-table rxm-table-hover">                    <thead>                        <tr class="rxm-column—container" clsnm="rxm-column—container" rxmtype="sublayout" rxmname="表格列栏" id="column—container026">                            <th align="center" class="rxmindex noDrag" width="35px"></th>                            <th class="rxm-grid-column" clsnm="rxm-grid-column" rxmtype="display" rxmname="标题" fieldvalue="msgTitle" rxmmdview="" id="column027">标题</th>                             <th class="rxm-grid-column" clsnm="rxm-grid-column" rxmtype="display" rxmname="消息内容" fieldvalue="msgContent" rxmmdview="" id="column028">消息内容</th>                             <th class="rxm-grid-column" clsnm="rxm-grid-column" rxmtype="display" rxmname="发件人" fieldvalue="msgSentUser" rxmmdview="" id="column029">发件人</th>                         </tr>                    </thead>                </table>            </div>            <div class="rxm-table-body" style="overflow: visible; position: relative;">                  <table class="table rxm-table-hover">                      <tbody>                                                </tbody>                  </table>            </div>        </div>    </div>    <div class="rxm-s-grid-pagination" rxmtype="sublayout" clsnm="rxm-s-grid-pagination" rxmpaging="true" rxmpagesize="10" id="pagination030">        <a title="第一页" class="fa fa-step-backward"><i class="icon-first"></i></a>        <a title="上一页" class="fa fa-chevron-left"><i class="icon-arrow-left"></i></a>        <span class="rxm-cur-page"><input type="text" value="1"></span>        <a title="下一页" class="fa fa-chevron-right">            <i class="icon-arrow-right"></i>        </a>        <a title="最后一页" class="fa fa-step-forward"><i class="icon-last"></i></a>        <a title="刷新" class="refresh"><i class="fa fa-refresh"></i></a>        <span class="rxm-data-count">共<i class="rxm-num">0</i>条</span>        <span class="rxm-page-size">            每页            <select>                <option value="5">5</option>                <option value="10">10</option>                <option value="15">15</option>                <option value="20">20</option>                <option value="50">50</option>                <option value="100">100</option>            </select>条        </span>    </div>    <div class="rxm-s-grid-bottomRefreshbar" style="display: none;">        <span class="rxm-grid-loading"></span>&nbsp;&nbsp;&nbsp;<span>数据加载中...</span>    </div>    <template id="template-grid024">        {{each layout}}            {{if $value.icon == "icon"}}            <td class="rxm-td-icon">{{$value.icon}}</td>            {{else}}                {{if $index == 0}}                <td>                    {{if $value.name !== null}}                        <span class="rxm-col-name">{{$value.name}}&nbsp;:&nbsp;</span>                        <span class="rxm-col-value">{{rowData[$value.field]}}</span>                        {{else}}                        <span class="rxm-col-value">{{rowData[$value.field]}}</span>                    {{/if}}                {{else}}                    {{if $value.name !== null}}                        <br><span class="rxm-col-name">{{$value.name}}&nbsp;:&nbsp;</span>                        <span class="rxm-col-value">{{rowData[$value.field]}}</span>                        {{else}}                        <br><span class="rxm-col-value">{{rowData[$value.field]}}</span>                    </td>                    {{/if}}                {{/if}}            {{/if}}        {{/each}}         {{if typeof multi != "undefined"}}            <td class="rxm-td-checkbox fix" style="display:none;">            {{if multi == true}}                <input class="rxm-multi-check" type="checkbox" name="s_gird_multi_{{gridId}}">            {{else}}                   <input class="rxm-multi-check" type="radio" name="s_gird_multi_{{gridId}}">            {{/if}}            </td>        {{/if}}        <td class="rxm-td-arrow"><img src="/www/rxm/utils/img/arrow-right.png"></td>    </template></div></div>
+			</div>
+		</div>
+		<script rxmextend="" src="./www/rxm/requirejs/require.js" type="text/javascript">
+		</script>
+		<script rxmextend="" id="rxm__ctrl_js" title="www/examples/pages/grid/viewplay/viewplay.js" type="text/javascript" src="./www/rxm/global/cssOrm.js">
+		</script>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

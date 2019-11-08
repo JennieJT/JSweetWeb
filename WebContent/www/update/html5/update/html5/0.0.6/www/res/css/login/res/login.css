@@ -1,0 +1,226 @@
+/* reset */
+*{
+    margin: 0;
+    padding: 0;
+}
+/* module */
+.clearFix:after{ display: block; content: ''; clear: both; }
+.clearFix{ *zoom: 1; }
+.mlrauto{ margin-left: auto; margin-right: auto; }
+.fl{ float: left; }
+.fr{ float: right; }
+/* style */
+html{
+    height: 100%;
+}
+body{
+    background-color:rgb(247,247,247);
+}
+.login-img img{
+	width: 100%;
+	height: 100%;
+}
+div.header,div.content,div.footer
+{
+    display:block;
+    width:80%;
+    margin:0 auto;
+}
+/*
+div.footer{
+    position: absolute;
+	width: 100%;
+    margin: 0 auto;
+    bottom:0px;
+}
+ */
+ 
+div.footer{
+	width: 100%;
+    margin-top: 80px;
+}
+
+.content form{
+    width:100%;
+}
+div.login-item{
+    display:block;
+    margin:15px 0px;
+    width:100%;
+    
+}
+.logo{
+    margin: 60px  0px 40px  0px;
+    text-indent: -9999em;
+    width: 100%;
+    height:76px;
+    background-repeat: no-repeat;
+    background-position: center 0;
+    background-image: url("./logo.png");
+    background-size:contain;
+}
+.motto{
+    font-size: 16px;
+    color: #46c3ea;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-align: center;
+}
+.input-wrap{
+    position:relative;
+    width:100%;
+    display:block;
+}
+.input-wrap .input{
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 20px 0 30px;
+    outline: 0 none;
+    font-size: 14px;
+    font-weight: normal;
+    border: 1px solid #e8e8e8;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    transition: border-color ease-in-out .2s, box-shadow ease-in-out .2s;
+    -moz-transition: border-color ease-in-out .2s, box-shadow ease-in-out .2s;	/* Firefox 4 */
+	-webkit-transition: border-color ease-in-out .2s, box-shadow ease-in-out .2s;	/* Safari 和 Chrome */
+	-o-transition: border-color ease-in-out .2s, box-shadow ease-in-out .2s;
+}
+.input:focus{
+	border:1px solid #46c3ea;
+	box-shadow: 0 0 3px #46c3ea;
+}
+.input-wrap label{
+    cursor: pointer;
+    font-size:9px;
+    text-decoration:none;
+}
+.input-wrap label.sr-only{
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+.has-error{
+    color: #a94442;
+}
+.has-error .input{
+    border: 1px solid #a94442;
+    box-shadow: 0 0 3px #a94442;
+}
+.error{
+    font-size: 8px;
+    margin: 0 0 0 5px;
+    height:10px;
+}
+div.login-submit{
+    width:80%;
+    margin:0  auto;
+}
+.login-submit a{
+    display:block;
+    width:100%;
+}
+.login-reg
+{
+    position:absolute;
+    right:16px;
+    top:6px;
+    font-size:8px;
+}
+.login-right
+{
+    font-size:8px;
+    text-align:center;
+    padding:6px 0px;
+}
+
+.codeImg{
+    height: 40px;
+    width: 100px;
+    cursor: pointer;
+}
+.input.code{
+    width: 125px;
+}
+input[type="checkbox"].remeber{
+    vertical-align: middle;
+    margin:0;
+}
+.icon{
+    position: absolute;
+    left: 8px;
+    top: 12px;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-image: url("./icon.png");
+}
+.icon-user{
+    background-position: 0 0;
+}
+.has-focus .icon-user{
+	background-position: -48px 0;
+}
+.has-error .icon-user{
+    background-position: -100px 0 !important;
+}
+.icon-lock{
+    background-position: 0 -25px;
+}
+.has-focus .icon-lock{
+	background-position: -49px -25px;
+}
+.has-error .icon_lock{
+    background-position: -100px -25px !important;
+}
+.icon_check{
+    background-position: 0 -52px;
+}
+.has_focus .icon_check{
+	background-position: -49px -52px;
+}
+.has_error .icon_check{
+    background-position: -100px -52px !important;
+}
+.remeber-wrap{
+    line-height: 40px;
+    font-size: 12px;
+    color: #979797;
+    position: relative;
+}
+.remeber-wrap label{
+	display: inline;
+}
+.remeber-tip{
+    position: absolute;
+    display: none;
+}
+.submit{
+    width: 111px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    background: #46c3ea;
+    font-size: 14px;
+    color: #fff;
+    border: 0 none;
+    outline: 0 none;
+    cursor: pointer;
+}
+.submit:hover, .submit:focus{
+	background: #16aedd;
+	text-decoration: none;
+	color: #fff;
+}
+.submit.disabled:hover{
+	background: #46c3ea;
+}
+.submit.disabled{
+	pointer-events: none;
+	cursor: not-allowed;
+	opacity: .65;
+	filter: alpha(opacity=65);
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}

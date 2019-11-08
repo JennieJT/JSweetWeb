@@ -1,0 +1,5 @@
+[
+    {"alt": "文本域" , "title":"图片标题1", "src":"www/examples/slider/view/1.jpg" , "href":"http://www.baidu.com"},
+    {"alt": "密码域" , "title":"图片标题2", "src":"www/examples/slider/view/2.jpg" , "href":"http://www.baidu.com"},
+    {"alt": "文本框" , "title":"图片标题3", "src":"www/examples/slider/view/3.jpg" , "href":"http://www.baidu.com"}
+]

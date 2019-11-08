@@ -1,0 +1,23 @@
+<div class="rxm-slider-container rxm-slider slide" rxmtemplate="sliderTemplate" data-ride="rxm-slider" rxmisnav="on" rxmisindicator="on" rxmisdisplaytitle=true isNavrxmtemplate="rxm-template-slider" rxmurl="" rxmheight="200" refresh>
+	<ol class="rxm-slider-indicators">
+	</ol>
+	<div class="rxm-slider-inner" clsnm="rxm-slider">
+	</div>
+	<a class="rxm-slider-control-prev" href="" role="button" data-slide="prev">
+	  <span class="rxm-slider-control-prev-icon" aria-hidden="true"></span>
+	  <span class="sr-only">Previous</span>
+	</a>
+	<a class="rxm-slider-control-next" href="" role="button" data-slide="next">
+	  <span class="rxm-slider-control-next-icon" aria-hidden="true"></span>
+	  <span class="sr-only">Next</span>
+	</a>
+	<template id="sliderTemplate">
+		 {{each data}}
+				<div class="rxm-single-image rxm-slider-item">
+					<img src="{{$value.src}}" rxmheight="200px" rxmtitle="{{$value.title}}" rxmhref="" rxmfill="full" rxmiscache=false rxmurl="{{$value.src}}" loadingUrl="./www/res/css/login/res/loading.gif" onload="rxm_image_load()" onerror="
+					rxm_image_onerror(this)">
+					<div class="rxm-single-image-title">{{$value.title}}</div>
+				</div>
+		 {{/each}}
+	</template>
+</div>

@@ -1,5 +1,6 @@
 require(["JSweetGrid", "JSweetDlg", "JSweetForm", "text!jsweet/jane/why/gridExam/update/jSweetUpdateForm.html"], function (JsweetGrid, Dlg, Jform, templeteContent) {
     $(document).ready(function () {
+        //url 
         /**@type {JSweetGrid} */
         var grid = JsweetGrid({ id: "jsweet_table", templeteId: "each_row" })
         grid.compare=function(a,b){
@@ -31,11 +32,7 @@ require(["JSweetGrid", "JSweetDlg", "JSweetForm", "text!jsweet/jane/why/gridExam
             }
         }
         var jform = Jform({ form_id: "version-form" });
-        grid.load({
-            url: "jswt/updateVersion/paginationFetchTable",
-            curPage:grid.getParam['curPage'],
-            rowNum:grid.getParam['rowNum']
-        })
+        grid.load({url: "jswt/updateVersion/paginationFetchTable"})
         var dlg;
         function popDialog() {
             var args = {
@@ -95,14 +92,14 @@ require(["JSweetGrid", "JSweetDlg", "JSweetForm", "text!jsweet/jane/why/gridExam
                     title: "version information",
                     onload: function (e) {
                     	jform.load({url:"jswt/updateVersion/currentVersion",
-                    		data: data.data[data.curNum-1]
+                    		data: data.data[data.curNum]
                     	})   	 
                         $('#save_version_dlg .jsweet-okay').click(function () {
                             //get all the value from the form
                             //jquery serialize function: get all the data from the form as key and value;
                             var x = jform.serialize();
                             var magicSerialJson = x;
-                            var result=$.extend(data.data[data.curNum-1],magicSerialJson)
+                            var result=$.extend(data.data[data.curNum],magicSerialJson)
                             $.ajax(
                                 {
                                     url: "jswt/updateVersion/paramForm",

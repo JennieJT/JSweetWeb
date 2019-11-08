@@ -5,12 +5,12 @@ define([], function () {
     var factory = function (args) {
         var thisObj
         var _url
-        var _curPage=1
-        var _rowNum=5
-        var _allNum
+        var _curPage=0
+        var _rowNum=1
         var _curNum
         var _gridData=[]
         var _id=args.id
+        var _param
         //id is necessary
         if(!_id){
             console.warn("id required!!!!!")
@@ -32,22 +32,12 @@ define([], function () {
         }
         //constructor. no function actually.
         var JSweetGrid = function () {
+            _curPage=$(".cur-page-input").val();
+            _rowNum=$(".row-num-span>select").val();
         }
         /**
          * @param {TJSweetGridLoad} args
          */
-        JSweetGrid.prototype.getParam=function(){
-            var result={
-                url:_url,
-                curPage:_curPage,
-                rowNum:_rowNum,
-                allNum:_allNum,
-                curNum:_curNum,
-                gridData:_gridData,
-                id:_id
-            }
-            return result;
-        }
         JSweetGrid.prototype.load = function (args) {
             args&&args.url&&(_url=args.url);
             // if(typeof args!="undefined"){
@@ -55,7 +45,7 @@ define([], function () {
             //         url=args.url
             //     }
             // }
-            args&&args.param&&(param=args.param);
+            args&&args.param&&(_param=args.param);
             args&&args.curPage&&(_curPage=args.curPage);
             args&&args.rowNum&&(_rowNum=args.rowNum);
             var the=this
@@ -63,10 +53,10 @@ define([], function () {
                 {
                     theGridObj:the,
                     url: _url,
-                    data:{
+                    data:$.extend(true,{},{
                         curPage:_curPage,
-                        rowNum:_rowNum
-                    },
+                        rowNum:_rowNum,
+                    },_param),
                     /*送出的数据格式，报文头部   Content-Type*/
                     //contentType  
                     //报文头部的 Method
@@ -87,13 +77,13 @@ define([], function () {
             var selected = $("#"+_id+" [type=checkbox]");
             for (var i = 0; i < selected.length; i++) {
                 if (rowNum==undefined&&selected[i].checked) {
-                    rowBeingChecked.push($("input").index(selected[i])-1);
+                    rowBeingChecked.push($("#"+_id+" input").index(selected[i]));
                 }
                 if(rowNum!=undefined){
                     var toSelect=rowNum[index];
                     if(i==toSelect){
                         $(selected[i]).attr("checked",true)
-                        rowBeingChecked.push($("input").index(selected[i])-1)
+                        rowBeingChecked.push($("#"+_id+" input").index(selected[i]))
                         index=index+1;
                         if(index>=rowNum.length){
                             break;
@@ -110,9 +100,6 @@ define([], function () {
         JSweetGrid.prototype.getDataChecked = function (){
             var dataChecked=[];
             var indices=this.checkedRow();
-            if(indices==undefined){
-                return dataChecked;
-            }
             for(var i=0;i<indices.length;i++){
                 dataChecked.push(_gridData[indices[i]]);
             }
@@ -152,7 +139,7 @@ define([], function () {
                 // }
                 // what(a)
                 // what2(b)
-            $("#"+_id+" #table_line").remove();
+            $("#"+_id+" .table-line").remove();
             $("#"+_id+" td").remove();
             var template=$("#"+_id+" #each_row");
      
@@ -178,18 +165,41 @@ define([], function () {
              $("#"+_id).on("jsweetClickRow",args.data,$.proxy(args.callback,this)) 
          }
         var trclick=function(){
-            var awhat=$(event.target).closest("tr");
+            var awhat=$(event.target).closest(".table-line");
             var bwhat=awhat[0]
-            _curNum=$("tr" ).index(bwhat);
-            _curNum>0&&$("#"+_id).trigger("jsweetClickRow",{curNum:_curNum,data:_gridData});
+            _curNum=$(".table-line" ).index(bwhat);
+           $("#"+_id).trigger("jsweetClickRow",{curNum:_curNum,data:_gridData});
         }
          //why??
+         $("#jsweet_sorted_search").click(function(){
+             var content=$("#jsweet_sorted_search_content").val();
+             var sort=$(".jsweet-sorted-search-sort").val();
+             if(content.length==0){
+                 _curPage=1;
+                 _rowNum=10;
+                 pageShow.val(_curPage)
+                 rowNumShow.val(_rowNum)
+                 _param=null;
+                 thisObj.load();
+             }else{
+                 _curPage=1;
+                 _rowNum=10;
+                 pageShow.val(_curPage)
+                 rowNumShow.val(_rowNum)
+                 thisObj.load({param:{name:sort,value:content}});
+                    // {param[sort]:content}
+             }
+         });
          thisObj=new JSweetGrid();
          var pageShow=$(" .cur-page-input")
+         var rowNumShow=$(".row-num-span>select")
+         $(".refresh-a").click(function(){
+            thisObj.load()
+        });
          $(" .cur-page-input").change(function(){
              var pageData=$(this).val();
              _curPage=pageData;
-             thisObj.load()
+             thisObj.load();
 
          });
          $(".next-page-a i").click(function(){

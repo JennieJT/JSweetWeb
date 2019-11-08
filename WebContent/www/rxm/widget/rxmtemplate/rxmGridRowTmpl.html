@@ -1,0 +1,39 @@
+<tr>
+  {{each layout}}
+        {{if $value.icon == "icon"}}
+            <td class="rxm-td-icon">{{$value.icon}}</td>
+            {{else}}
+                {{if $index == 0}}
+                    <td>
+                    {{if $value.name !== "" && $value.name !== null}}
+                    
+                    <span class="rxm-col-name">{{$value.name}}&nbsp;:&nbsp;</span>
+                        <span class="rxm-col-value">{{rowData[$value.field]}}</span>
+                        {{else}}
+                        <span class="rxm-col-value">{{rowData[$value.field]}}</span>
+                    {{/if}}
+                {{else if $index !== 0}}
+                    {{if $value.name !== "" && $value.name !== null}}
+                    </br><span class="rxm-col-name">{{$value.name}}&nbsp;:&nbsp;</span>
+                        <span class="rxm-col-value">{{rowData[$value.field]}}</span>
+                        {{else}}
+                        </br><span class="rxm-col-value">{{rowData[$value.field]}}</span>
+                    </td>
+                    {{/if}}
+                {{/if}}
+        {{/if}}
+    {{/each}} 
+    {{if typeof multi != "undefined"}}
+        <td class="rxm-td-checkbox fix" style="display:none;">
+        {{if multi == true}}
+            <input class="rxm-multi-check" type="checkbox" name="s_gird_multi_{{gridId}}">
+        {{else}}   
+            <input class="rxm-multi-check" type="radio" name="s_gird_multi_{{gridId}}">
+        {{/if}}
+        </td>
+    {{/if}}
+    <td class="rxm-td-arrow"><img src="/www/rxm/utils/img/arrow-right.png"></td>
+</tr>
+
+
+

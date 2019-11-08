@@ -1,0 +1,15 @@
+<template id="rxmdk_plugin_panel_template">
+   {{each data}}
+      <div class="rxm-icon-list-row">
+         <h3 class="rxm-icon-list-header"><i class="fa  fa-list-alt rxm-widget-title-icon"></i>{{$value.categoryTitle}}</h3>
+         <ul class="rxm-icon-list-content">
+            {{each $value.listData}}
+            <li data-href="{{$value.href}}" id="{{$value.id}}" class="rxm-icon-list-item rxm-icon-list-item-hoverDefault">
+               <i class="{{$value.iconClass}}" style="font-size: 20px"></i>
+               <span class="anticon-class">{{$value.title}}</span>
+            </li>   
+            {{/each}}
+         </ul>
+      </div>
+   {{/each}}
+</template>
