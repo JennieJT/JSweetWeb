@@ -422,9 +422,9 @@ td{
 	vertical-align:inherit;
 	height:40px;
 	border-top:0.1px solid rgb(184, 180, 180);
-	   background-color: rgb(241, 240, 240);
-	   word-wrap:break-word;
-	   word-break:break-all;
+	background-color: rgb(241, 240, 240);
+	word-wrap:break-word;
+	word-break:break-all;
 } 
  .table-th{
     text-align: left;

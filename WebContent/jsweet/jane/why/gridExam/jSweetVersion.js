@@ -58,7 +58,7 @@ require(["JSweetGrid", "JSweetDlg", "JSweetForm", "text!jsweet/jane/why/gridExam
                         $.extend(magicSerialJson, beExtended);
                         $.ajax(
                             {
-                                url: "jswt/updateVersion/paramForm",
+                                url: "jswt/updateVersion/saveTestForm",
                                 data: magicSerialJson,
                                 type: "post",
                                 success: function (d) {
@@ -102,7 +102,7 @@ require(["JSweetGrid", "JSweetDlg", "JSweetForm", "text!jsweet/jane/why/gridExam
                             var result=$.extend(data.data[data.curNum],magicSerialJson)
                             $.ajax(
                                 {
-                                    url: "jswt/updateVersion/paramForm",
+                                    url: "jswt/updateVersion/saveTestForm",
                                     data: result,
                                     success: function (d) {
                                         if (d.success) {

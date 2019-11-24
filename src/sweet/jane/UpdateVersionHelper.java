@@ -19,8 +19,8 @@ import org.hibernate.transform.Transformers;
 import model.SelectedAttributes;
 
 public class UpdateVersionHelper {
-	String sourcePath="/Users/jingtianwang/Documents/GitHub/JSweetWeb/WebContent/www";
-	public List<String> getVersionNumList() {
+	String allPublishPath="/Users/jingtianwang/tomcat/JSWeetWeb";
+	public List<String> getOfficialVersionNumList() {
 		SessionFactory sessionFactory = new Configuration().configure("hibernate.version.cfg.xml").buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		String publishedSql="SELECT v.number_1 as number1, v.number_2 as number2, v.number_3 as number3, "
@@ -44,17 +44,17 @@ public class UpdateVersionHelper {
 		return ans;
 		
 	}
-	public String getVersionNum() {
-		if(this.getVersionNumList().isEmpty()) {
+	public String getOfficialVersionNum() {
+		if(this.getOfficialVersionNumList().isEmpty()) {
 			return "";
 		}
-		return this.getVersionNumList().get(0);
+		return this.getOfficialVersionNumList().get(0);
 	}
-	public String getSourcePath() {
-		return sourcePath;
+	public String getAllPublishPath() {
+		return allPublishPath;
 	}
-	public void setSourcePath(String sourcePath) {
-		this.sourcePath = sourcePath;
+	public void setAllPublishPath(String sourcePath) {
+		this.allPublishPath = sourcePath;
 	}
 	public void deleteFile(File file) {
 		if (file.exists()) {// 判断文件是否存在
@@ -74,7 +74,7 @@ public class UpdateVersionHelper {
 	}
 	public String  getZipSavePath()
 	{
-		String zipPath=sourcePath+"/update/html5/";
+		String zipPath=allPublishPath+"/update/temp/";
 		File  d=new File(zipPath);
 		if(!d.exists())
 		{
@@ -84,7 +84,7 @@ public class UpdateVersionHelper {
 	}
 	public String  getAddZipSavePath(String versionNum)
 	{
-		String addZipPath=sourcePath+"/update/addZip/"+versionNum+"/mobile";
+		String addZipPath=allPublishPath+"/update/addZip/"+versionNum+"/mobile";
 		File  d=new File(addZipPath);
 		if(!d.exists())
 		{
@@ -152,54 +152,53 @@ public class UpdateVersionHelper {
 	  
 	        }  
 	}
-	public String getUpdateList(String unpublishPath) {
+	public String getUpdateList(String toPublishPath) {
 		String updateList = "";
 		// 格式化待发布版本路径
-		String unpushlishFilePath = unpublishPath.replaceAll("\\\\", "/").replaceAll("//", "/");
+		toPublishPath = toPublishPath.replaceAll("\\\\", "/").replaceAll("//", "/");
 		// String unpushlishFilePath1=unpushlishFilePath.replaceAll("/", "\\");
-		// 自己写：正式发布版本zip路径
-		List<String> version = this.getVersionNumList();
+		List<String> version = this.getOfficialVersionNumList();
 		for (String versionNum : version) {
 			String version_Num=versionNum.replace(".", "_");
 			String saveAllZipName="original_"+version_Num+"_all.zip";
-			String publishedPath = this.getSourcePath() + "/" + versionNum + "/"+saveAllZipName;
+			String publishedPath = this.getAllPublishPath() + "/update/html5/" + versionNum + "/"+saveAllZipName;
 			// 解压缩
 			JSweetZipHelper decompressedFileUtil = new JSweetZipHelper();
-			String tempSavePath = this.getZipSavePath() + versionNum + "/";
-			String tempSavePath1 = (this.getZipSavePath() + versionNum + "/www")
+			String officialPublishSavePath = this.getZipSavePath() + versionNum + "/";
+			String officialPublishSavePath1 = (this.getZipSavePath() + versionNum + "/www")
 					.replaceAll("\\\\", "/").replaceAll("//", "/");
 			try {
-				this.deleteFile(new File(tempSavePath1));// 清空文件夹
+				this.deleteFile(new File(officialPublishSavePath1));// 清空文件夹
 				//ectract
-				decompressedFileUtil.Ectract(publishedPath, tempSavePath);
+				decompressedFileUtil.Ectract(publishedPath, officialPublishSavePath);
 				// 对比待发布和已正式发布版本
 				JSweetCompareFileHelper compareFile=new JSweetCompareFileHelper();
-				Map<String, List<FileMd5>> map = compareFile.compare(tempSavePath1, unpushlishFilePath);
+				Map<String, List<FileMd5>> map = compareFile.compare(officialPublishSavePath1, toPublishPath);
 				List<FileMd5> updateFile = (List<FileMd5>) map.get("updateFile");
 				List<FileMd5> delFile = (List<FileMd5>) map.get("delFile");
 				List<FileMd5> addFile = (List<FileMd5>) map.get("addFile");
 				this.deleteFile(new File(this.getAddZipSavePath(versionNum)));// 清空文件夹
 				if ((updateFile!=null)&&(updateFile.size()>0)) {
 					for (FileMd5 fileMd5 : updateFile) {
-						
 						String filePath = fileMd5.getFile().getAbsolutePath().replaceAll("\\\\", "/");
-						String updateFilePath = filePath.replaceAll(unpushlishFilePath, "");
-						if(versionNum.equals(getVersionNum())){
+						String updateFilePath = filePath.replaceAll(toPublishPath, "");
+						if(versionNum.equals(getOfficialVersionNum())){
 							updateList = updateList + "updateFile：" + updateFilePath + ";";
 						}
 						// 保存修改文件
-						this.copyFile(fileMd5.getFile().getAbsolutePath(),
-								this.getAddZipSavePath(versionNum) + updateFilePath);
+						String prev=fileMd5.getFile().getAbsolutePath();
+						String post=this.getAddZipSavePath(versionNum) + updateFilePath;
+						this.copyFile(prev,post);
 					}
 				}
 				if ((delFile != null) && (delFile.size() > 0)) {
 					ArrayList<String> delPath = new ArrayList<String> ();//获取相对路径
 						for (FileMd5 fileMd5 : delFile) {
-							if (versionNum.equals(getVersionNum())) {
+							if (versionNum.equals(getOfficialVersionNum())) {
 							updateList = updateList + "delFile：" + fileMd5.getFile().getName() + ";";
 							}
 							String filePath = fileMd5.getFile().getAbsolutePath().replaceAll("\\\\", "/");
-							delPath.add(filePath.replaceAll(tempSavePath1, "/www"));
+							delPath.add(filePath.replaceAll(officialPublishSavePath1, "/www"));
 						}
 					this.contentToTxt(this.getAddZipSavePath(versionNum) + "/deletelist.txt",
 							delPath);
@@ -207,13 +206,14 @@ public class UpdateVersionHelper {
 				if ((addFile!=null)&&(addFile.size()>0)) {
 					for (FileMd5 fileMd5 : addFile) {
 						String filePath = fileMd5.getFile().getAbsolutePath().replaceAll("\\\\", "/");
-						String updateFilePath = filePath.replaceAll(unpushlishFilePath, "");
-						if (versionNum.equals(getVersionNum())) {
+						String updateFilePath = filePath.replaceAll(toPublishPath, "");
+						if (versionNum.equals(getOfficialVersionNum())) {
 							updateList = updateList + "addFile：" + updateFilePath + ";";
 						}
 						// 保存新增文件
-						this.copyFile(fileMd5.getFile().getAbsolutePath(),
-								this.getAddZipSavePath(versionNum) + updateFilePath);
+						String prev=fileMd5.getFile().getAbsolutePath();
+						String next=this.getAddZipSavePath(versionNum) + updateFilePath;
+						this.copyFile(prev,next);
 					}
 				}
 				

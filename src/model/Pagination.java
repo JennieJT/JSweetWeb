@@ -1,7 +1,5 @@
 package model;
-
 import java.util.HashMap;
-
 public class Pagination {
 	int curPage;
 	int rowNum;
