@@ -1,0 +1,73 @@
+html{
+    height:100%;
+    width:100%;
+    overflow:hidden;
+}
+body{
+    height:100%;
+    width:100%;
+    overflow:hidden;
+    padding:0 0 0 0;
+    margin:0 0 0 0;
+}
+#left{
+    height:100%;
+    width:70%;
+    background-image:url('../../../jsweet/plgns/res/imgs/login-left-bg.png');
+    background-position:right bottom;
+}
+#right{
+    position:relative;
+    top:-100%;
+    margin-left:70%;
+    padding-left:5%;
+    padding-right:5%;
+    height:100%;
+}
+#right > #title{
+    position:relative;
+    top:30%;
+    line-height: 3rem;
+    font-size:1rem;
+    font-family: cursive;
+    margin:0 0 0 0;
+}
+#jsweet_login{
+    position:relative;
+    /* why???? */
+    top:30%;
+    padding-top:1rem;
+    height:12rem;
+}
+#userName_div{
+    margin-bottom: 1rem;
+    top:calc(20% + 4rem);
+    line-height:2rem;
+    border:solid 0.1px rgba(172, 172, 172, 0.979);
+}
+#passWord_div{
+    line-height:2rem;
+    margin-bottom: 1rem;
+    border:solid 0.1px rgba(172, 172, 172, 0.979);
+}
+#verification_code_div{
+    height:2rem;
+    margin-bottom: 1rem;
+    border:solid 0.1px rgba(172, 172, 172, 0.979);
+}
+#submit_button_div{
+    height:2rem;
+    margin-bottom: 1rem;
+    border:solid 0.1px rgba(172, 172, 172, 0.979);
+}
+.login-label{
+    margin-left:1rem;
+    height:100%;
+    margin-right:1rem;
+    color:grey;
+}
+.login-input{
+    width:calc(95% - 3rem);
+    border:0;
+    color:grey;
+}
