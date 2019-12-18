@@ -15,7 +15,7 @@ define([], function () {
 
             //         //validate
             //         jQuery.validator.setDefaults({ "errorElement": "div" })
-            900        //             return params.indexOf(value.charAt(0)) == -1;
+                   //             return params.indexOf(value.charAt(0)) == -1;
             //         }, jQuery.validator.format("Invalid, First character is {0}"))
             //         // $.validator.addClassRules("name",{jsweetFirstNotB: "A?EIOU"})
             //         var voptions={
