@@ -8,7 +8,7 @@
 	<packaging>war</packaging>
 	<properties>
 		<jane.version>1.0.0 </jane.version>
-		<spring.version>5.1.6.RELEASE </spring.version>
+		<spring.version>5.2.20.RELEASE</spring.version>
 	</properties>
 	<dependencies>
 		<dependency>
